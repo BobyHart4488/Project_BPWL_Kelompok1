@@ -295,8 +295,15 @@ $db = new database();
                         <form action="../controllers/proses.php?aksi=tambah_order" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="customer_name">Customer Name</label>
-                                    <input type="text" class="form-control" value="" id="customer_name" name="customer_name" placeholder="Customer Name">
+                                    <label for="phone_number">Nama Menu</label>
+                                    <select class="input custom-select" id="validationCustom04" required>
+                                        <option selected disabled value="">Pilih Menu</option>
+                                        <option value="Pizza">Pizza</option>
+                                        <option value="Nasi Goreng">Nasi Goreng</option>
+                                        <option value="Cupcake">Cupcake</option>
+                                        <option value="Jus Alpukat">Jus Alpukat</option>
+                                        <option value="Cappucino">Cappucino</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="phone_number">Phone Number</label>
