@@ -23,6 +23,7 @@ class Elmio extends CI_Controller {
 		parent::__construct();
 		//$this->load->model('model_customer');
 	}
+	
 	public function index()
 	{
 		$this->load->view('index');
