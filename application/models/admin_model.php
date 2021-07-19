@@ -21,16 +21,17 @@ class Admin_model extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
-		//$this->load->model('model_customer');
+		$this->load->database();
 	}
-	
-	public function index()
+	function createdAdmin()
 	{
-		$this->load->view('index');
+		$data = array(
+			'id_admin' => $this->input->post('id_admin'),
+			'password' => $this->input->post('password')
+		);
+		$this->db->insert('admin', $data);
 	}
-
-	public function register()
-	{
-		$this->load->view('register');
+	function deleteDataAdmin($id_admin){
+		$query = $this->db->query("DELETE FROM admin WHERE id_admin = '$id_admin'");
 	}
 }

@@ -1,7 +1,3 @@
-<?php 
-include '../models/database.php';
-$db = new database();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,23 +28,13 @@ $db = new database();
         <nav class="navbar flex-nowrap p-0">
             <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
                 <!-- Logo For Mobile View -->
-                <a class="navbar-brand navbar-brand-mobile" href="
-                <?php if(isset($_SESSION['name'])){
-                    echo 'main.php';
-                } else {
-                    echo '../controllers/proses.php?aksi=logout';
-                }?>">
+                <a class="navbar-brand navbar-brand-mobile" href="">
                     <img class="img-fluid w-100" src="../assets/img/logo-mini.png" alt="Graindashboard">
                 </a>
                 <!-- End Logo For Mobile View -->
 
                 <!-- Logo For Desktop View -->
-                <a class="navbar-brand navbar-brand-desktop" href="
-                <?php if(isset($_SESSION['name'])){
-                    echo 'main.php';
-                } else {
-                    echo '../controllers/proses.php?aksi=logout';
-                }?>">
+                <a class="navbar-brand navbar-brand-desktop" href="">
                     <img class="side-nav-show-on-closed" src="../assets/img/logo-mini.png" alt="Graindashboard"
                         style="width: auto; height: 33px;">
                     <img class="side-nav-hide-on-closed" src="../assets/img/logo.png" alt="Graindashboard"
@@ -128,11 +114,7 @@ $db = new database();
                             data-unfold-animation-out="fadeOut">
                             <!--img class="avatar rounded-circle mr-md-2" src="#" alt="John Doe"-->
                             <span class="d-none d-md-block">
-                                <?php if(isset($_SESSION['name'])){
-                                    echo $_SESSION['name'];
-                                } else {
-                                    echo ' ';
-                                }?>
+                            Farah
                             </span>
                             <i class="gd-angle-down d-none d-md-block ml-2"></i>
                         </a>
@@ -140,8 +122,7 @@ $db = new database();
                         <ul id="profileMenu"
                             class="unfold unfold-user unfold-light unfold-top unfold-centered position-absolute pt-2 pb-1 mt-4 unfold-css-animation unfold-hidden fadeOut"
                             aria-labelledby="profileMenuInvoker" style="animation-duration: 300ms;">
-                            <?php if(isset($_SESSION['name'])){
-                            echo '<li class="unfold-item">
+                            <li class="unfold-item">
                                 <a class="unfold-link d-flex align-items-center text-nowrap" href="#">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-user"></i>
@@ -149,24 +130,13 @@ $db = new database();
                                     My Profile
                                 </a>
                             </li>
-                            <li class="unfold-item unfold-item-has-divider">';
-                            } else {
-                            echo '<li class="unfold-item">';
-                            } ?>
-                                <a class="unfold-link d-flex align-items-center text-nowrap" href="
-                                    <?php if(isset($_SESSION['name'])){
-                                        echo '../controllers/proses.php?aksi=logout';
-                                    } else {
-                                        echo '../views';
-                                    } ?>">
+                            <li class="unfold-item unfold-item-has-divider">
+                            <li class="unfold-item">
+                                <a class="unfold-link d-flex align-items-center text-nowrap" href="">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
                                     </span>
-                                    <?php if(isset($_SESSION['name'])){
-                                        echo 'Sign Out';
-                                    } else {
-                                        echo 'Sign In';
-                                    } ?>
+                                    Sign Out
                                 </a>
                             </li>
                         </ul>
@@ -476,17 +446,14 @@ $db = new database();
                                     <table class="table text-nowrap mb-0">
                                         <thead>
                                             <tr>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">#</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Customer</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Phone</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Amount</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Status</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Actions</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pesanan</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pembeli</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                foreach ($db->tampil_data_order() as $customerorder) { ?>
+                                                foreach ($db->getDataPesanan() as $customerorder) { ?>
                                             <tr>
                                                 <td class="py-3"><?php echo $customerorder['idOrder']; ?></td>
                                                 <td class="py-3">

@@ -21,16 +21,26 @@ class Pesanan_model extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
-		//$this->load->model('model_customer');
+		$this->load->database();
 	}
-	
-	public function index()
-	{
-		$this->load->view('index');
+	function getDataPesanan(){
+		$query = $this->db->query('SELECT * FROM pesanan');
+		return $query->result();
 	}
-
-	public function register()
-	{
-		$this->load->view('register');
+	function getDataUpdatePesanan($id_pesanan){
+		$query = $this->db->query("SELECT * FROM pesanan WHERE id_pesanan = '$id_pesanan'");
+		return $query->row();
+	}
+	function updateDataPesanan($id_pesanan){
+		$data = array(
+			'id_pesanan' => $this->input->post('id_pesanan'),
+			'id_pembeli' => $this->input->post('id_pembeli'),
+			'total' => $this->input->post('total')
+		);
+		$this->db->where('id_pesanan',$id_pesanan);
+		$this->db->update('pesanan', $data);
+	}
+	function deleteDataPesanan($id_pesanan){
+		$query = $this->db->query("DELETE FROM pesanan WHERE id_pesanan = '$id_pesanan'");
 	}
 }
