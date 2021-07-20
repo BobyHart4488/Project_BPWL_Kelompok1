@@ -9,7 +9,7 @@ if ($this->session->userdata('user') != 'admin') {
 
 <head>
     <!-- Title -->
-    <title>Dashboard | El' Mio</title>
+    <title>Menu | El' Mio</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -163,7 +163,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <!-- End Title -->
 
                 <!-- Dashboard -->
-                <li class="side-nav-menu-item active">
+                <li class="side-nav-menu-item">
                     <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>Admin">
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-dashboard"></i>
@@ -211,22 +211,22 @@ if ($this->session->userdata('user') != 'admin') {
                 <!-- End Users -->
 
                 <!-- Menus -->
-                <!-- Menus -->
-                <li class="side-nav-menu-item side-nav-has-menu">
-                    <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
-                        <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
-                        </span>
+                <li class="side-nav-menu-item side-nav-has-menu active side-nav-opened">
+                    <a class="side-nav-menu-link media align-items-center" href="#"
+                    data-target="#subOrders">
+                    <span class="side-nav-menu-icon d-flex mr-3">
+                        <i class="gd-user"></i>
+                    </span>
                         <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">
-                            <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-                        </span>
+                    <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
+                </span>
                         <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
                     </a>
 
                     <!-- Users: subUsers -->
-                    <ul id="subOrders" class="side-nav-menu side-nav-menu-second-level mb-0">
-                        <li class="side-nav-menu-item">
+                    <ul id="subOrders" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
+                        <li class="side-nav-menu-item active">
                             <a class="side-nav-menu-link" href="<?php echo base_url()?>Admin/menus">All Menus</a>
                         </li>
                         <li class="side-nav-menu-item">
@@ -246,7 +246,7 @@ if ($this->session->userdata('user') != 'admin') {
                     <div class="col-12">
                         <div class="card mb-3 mb-md-4">
                             <div class="card-header">
-                                <h5 class="font-weight-semi-bold mb-0">Recent Orders</h5>
+                                <h5 class="font-weight-semi-bold mb-0">List Menu</h5>
                                 <a href="../customerorder_pdf_data.php" type="button" class="mx-3 my-3 btn btn-outline-dark">PDF</a>
                                 <a href="../customerorder_xls_data.php" type="button" class="mx-3 my-3 btn btn-outline-success">XLS</a>
                             </div>
@@ -256,20 +256,24 @@ if ($this->session->userdata('user') != 'admin') {
                                     <table class="table text-nowrap mb-0">
                                         <thead>
                                             <tr>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pesanan</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pembeli</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Total</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Menu</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Nama Menu</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Jenis</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Harga</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Persediaan</th>
                                                 <th class="font-weight-semi-bold border-top-0 py-2">Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $queryOrder = $this->pesanan_model->tampilPesanan();
-                                                foreach ($queryOrder as $rowPesanan) {
+                                            <?php $queryMenu = $this->menu_model->tampilMenu();
+                                                foreach ($queryMenu as $rowMenu) {
                                             ?>
                                             <tr>
-                                                <td class="py-3"><?php echo $rowPesanan->id_pesanan; ?></td>
-                                                <td class="py-3"><?php echo $rowPesanan->id_pembeli; ?></td>
-                                                <td class="py-3">Rp <?php echo $rowPesanan->total; ?></td>
+                                                <td class="py-3"><?php echo $rowMenu->id_menu; ?></td>
+                                                <td class="py-3"><?php echo $rowMenu->nama; ?></td>
+                                                <td class="py-3"><?php echo $rowMenu->jenis; ?></td>
+                                                <td class="py-3"><?php echo $rowMenu->harga; ?></td>
+                                                <td class="py-3"><?php echo $rowMenu->persediaan; ?></td>
                                                 <td class="py-3">
                                                     <div class="position-relative">
                                                         <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">

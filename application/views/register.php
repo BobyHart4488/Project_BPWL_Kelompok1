@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <!-- Title -->
-    <title>Create new account | Graindashboard UI Kit</title>
+    <title>Create new account | El' Mio</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,16 +35,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="card">
 							<div class="card-body">
 								<h4 class="card-title">Create new account</h4>
-								<form action="../controllers/proses.php?aksi=register_user" method="POST">
+								<form action="<?php echo base_url() ?>Elmio/aksi_register" method="POST">
 			
 									<div class="form-group">
 										<label for="name">Name</label>
-										<input type="text" class="form-control" id="name" name="name" required="" autofocus="">
+										<input type="text" class="form-control" id="nama" name="nama" required="" autofocus="">
 									</div>
 
 									<div class="form-group">
-										<label for="email">E-Mail Address</label>
-										<input id="email" type="email" class="form-control" name="email" required="">
+										<label for="email">Buat ID</label>
+										<input id="text" type="text" class="form-control" name="id" required="" placeholder="Buat tanda P- dilanjutkan dengan angka">
 									</div>
 
 									<div class="form-row mb-4">

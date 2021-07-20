@@ -8,7 +8,7 @@ if ($this->session->userdata('user') != 'user') {
 <html lang="en">
 <head>
     <!-- Title -->
-    <title>Welcome | El' Mio</title>
+    <title>See Your Order | El' Mio</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -165,31 +165,33 @@ if ($this->session->userdata('user') != 'user') {
                 </a>
             </li>
             <!-- End Getting Started -->
+            
             <!-- My Order -->
-            <li class="side-nav-menu-item side-nav-has-menu">
-                    <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrder">
-                        <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
-                        </span>
-                        <span class="side-nav-fadeout-on-closed media-body">My Order</span>
+            <li class="side-nav-menu-item side-nav-has-menu active side-nav-opened">
+                    <a class="side-nav-menu-link media align-items-center" href="#"
+                    data-target="#subOrders">
+                    <span class="side-nav-menu-icon d-flex mr-3">
+                        <i class="gd-shopping-cart"></i>
+                    </span>
+                        <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">
-                            <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-                        </span>
+                    <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
+                </span>
                         <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
                     </a>
 
                     <!-- Users: subUsers -->
-                    <ul id="subOrder" class="side-nav-menu side-nav-menu-second-level mb-0">
+                    <ul id="subOrders" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
                         <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/order_input">Add Some Order</a>
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/order_input">Add some Order</a>
                         </li>
-                        <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>Admin/lihat_order">See my Order</a>
+                        <li class="side-nav-menu-item active">
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/lihat_order">See my Order</a>
                         </li>
                     </ul>
                     <!-- End Users: subUsers -->
                 </li>
-                <!-- End My Order -->
+            <!-- End My Order -->
         </ul>
     </aside>
     <!-- End Sidebar Nav -->

@@ -8,7 +8,7 @@ if ($this->session->userdata('user') != 'admin') {
 <html lang="en">
 <head>
     <!-- Title -->
-    <title>User | El' Mio</title>
+    <title>Edit Menu | El' Miot</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,13 +27,13 @@ if ($this->session->userdata('user') != 'admin') {
     <nav class="navbar flex-nowrap p-0">
         <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
             <!-- Logo For Mobile View -->
-            <a class="navbar-brand navbar-brand-mobile" href="">
+            <a class="navbar-brand navbar-brand-mobile" href="/">
                 <img class="img-fluid w-100" src="<?php echo base_url()?>assets/img/logo-mini.png" alt="Graindashboard">
             </a>
             <!-- End Logo For Mobile View -->
 
             <!-- Logo For Desktop View -->
-            <a class="navbar-brand navbar-brand-desktop" href="">
+            <a class="navbar-brand navbar-brand-desktop" href="/">
                 <img class="side-nav-show-on-closed" src="<?php echo base_url()?>assets/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
                 <img class="side-nav-hide-on-closed" src="<?php echo base_url()?>assets/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
             </a>
@@ -100,8 +100,8 @@ if ($this->session->userdata('user') != 'admin') {
                     <a id="profileMenuInvoker" class="header-complex-invoker" href="#" aria-controls="profileMenu" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-target="#profileMenu" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
                         <!--img class="avatar rounded-circle mr-md-2" src="#" alt="John Doe"-->
                         <span class="d-none d-md-block">
-                                <?= $this->session->userdata('id')?>
-                            </span>
+                            <?= $this->session->userdata('id')?>
+                        </span>
                         <i class="gd-angle-down d-none d-md-block ml-2"></i>
                     </a>
 
@@ -119,7 +119,7 @@ if ($this->session->userdata('user') != 'admin') {
                                 <a class="unfold-link d-flex align-items-center text-nowrap" href="<?php echo base_url() ?>Elmio/logout">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
-                                    </span> Sign Out
+                                    </span>Sign Out
                             </a>
                         </li>
                     </ul>
@@ -177,7 +177,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <!-- End Admins -->
 
                 <!-- Users -->
-                <li class="side-nav-menu-item active">
+                <li class="side-nav-menu-item">
                     <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>Admin/users">
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-user"></i>
@@ -226,70 +226,47 @@ if ($this->session->userdata('user') != 'admin') {
                     <nav class="d-none d-md-block" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Users</a>
+                                <a href="#">Orders</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">All Users</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Order</li>
                         </ol>
                     </nav>
                     <!-- End Breadcrumb -->
 
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                        <div class="h3 mb-0">Users</div>
+                        <div class="h3 mb-0">Edit Order</div>
                     </div>
 
 
-                    <!-- Users -->
-                    <div class="table-responsive-xl">
-                        <table class="table text-nowrap mb-0">
-                            <thead>
-                            <tr>
-                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pembeli</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Nama Pembeli</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Password</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Opsi</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <?php $queryUser = $this->user_model->tampilUser();
-                                                foreach ($queryUser as $rowUser) {
-                                            ?>
-                                            <tr>
-                                                <td class="py-3"><?php echo $rowUser->id_pembeli; ?></td>
-                                                <td class="py-3"><?php echo $rowUser->nama; ?></td>
-                                                <td class="py-3"><?php echo $rowUser->password; ?></td>
-                                                <td class="py-3">
-                                                    <div class="position-relative">
-                                                        <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
-                                                            <i class="gd-more-alt icon-text"></i>
-                                                        </a>
+                    <!-- Form -->
+                    <div>
+                        <form action="../controllers/proses.php?aksi=update_order" method="POST">
+                            <?php
+                                foreach ($db->edit_order($_GET['id']) as $customerorder){
+                            ?>
+                            <input type="hidden" id="idOrder" name="idOrder" value="<?php echo $customerorder['idOrder'] ?>">
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="name">Customer Name</label>
+                                    <input type="text" class="form-control" value="<?php echo $customerorder['customer_name'] ?>" id="customer_name" name="customer_name" placeholder="Customer Name">
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input type="text" class="form-control" value="<?php echo $customerorder['phone_number'] ?>" id="phone_number" name="phone_number" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-12">
+                                    <label for="amount">Amount of Order Fee</label>
+                                    <input type="number" class="form-control" value="<?php echo $customerorder['amount'] ?>" id="amount" name="amount" placeholder="Add Password">
+                                </div>
+                            </div>
+                            <?php } ?>
 
-                                                        <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-pencil unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Edit</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-close unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Delete</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                            </tbody>
-                        </table>
-                        <div class="card-footer d-block d-md-flex align-items-center d-print-none">
-                            <div class="d-flex mb-2 mb-md-0">Showing 1 to 8 of 24 Entries</div>
-
-                            <nav class="d-flex ml-md-auto d-print-none" aria-label="Pagination"><ul class="pagination justify-content-end font-weight-semi-bold mb-0">				<li class="page-item">				<a id="datatablePaginationPrev" class="page-link" href="#!" aria-label="Previous"><i class="gd-angle-left icon-text icon-text-xs d-inline-block"></i></a>				</li><li class="page-item d-none d-md-block"><a id="datatablePaginationPage0" class="page-link active" href="#!" data-dt-page-to="0">1</a></li><li class="page-item d-none d-md-block"><a id="datatablePagination1" class="page-link" href="#!" data-dt-page-to="1">2</a></li><li class="page-item d-none d-md-block"><a id="datatablePagination2" class="page-link" href="#!" data-dt-page-to="2">3</a></li><li class="page-item">				<a id="datatablePaginationNext" class="page-link" href="#!" aria-label="Next"><i class="gd-angle-right icon-text icon-text-xs d-inline-block"></i></a>				</li>				</ul></nav>
-                        </div>
+                            <button type="submit" name="editUser" class="btn btn-primary float-right">Edit</button>
+                        </form>
                     </div>
-                    <!-- End Users -->
+                    <!-- End Form -->
                 </div>
             </div>
 

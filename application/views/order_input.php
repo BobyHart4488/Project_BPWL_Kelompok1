@@ -1,21 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if ($this->session->userdata('user') != 'user') {
+    redirect(base_url());
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Title -->
-    <title>Create Order | Graindashboard UI Kit</title>
+    <title>Create Order | El' Mio</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/img/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url()?>assets/img/favicon.ico">
 
     <!-- Template -->
-    <link rel="stylesheet" href="../assets/css/graindashboard.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/graindashboard.css">
 </head>
 
 <body class="has-sidebar has-fixed-sidebar-and-header">
@@ -25,14 +28,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
             <!-- Logo For Mobile View -->
             <a class="navbar-brand navbar-brand-mobile" href="/">
-                <img class="img-fluid w-100" src="../assets/img/logo-mini.png" alt="Graindashboard">
+                <img class="img-fluid w-100" src="<?php echo base_url()?>assets/img/logo-mini.png" alt="Graindashboard">
             </a>
             <!-- End Logo For Mobile View -->
 
             <!-- Logo For Desktop View -->
             <a class="navbar-brand navbar-brand-desktop" href="#">
-                <img class="side-nav-show-on-closed" src="../assets/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
-                <img class="side-nav-hide-on-closed" src="../assets/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
+                <img class="side-nav-show-on-closed" src="<?php echo base_url()?>assets/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
+                <img class="side-nav-hide-on-closed" src="<?php echo base_url()?>assets/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
             </a>
             <!-- End Logo For Desktop View -->
         </div>
@@ -97,18 +100,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a id="profileMenuInvoker" class="header-complex-invoker" href="#" aria-controls="profileMenu" aria-haspopup="true" aria-expanded="false" data-unfold-event="click" data-unfold-target="#profileMenu" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
                         <!--img class="avatar rounded-circle mr-md-2" src="#" alt="John Doe"-->
                         <span class="d-none d-md-block">
-                                <?php if(isset($_SESSION['name'])){
-                                    echo $_SESSION['name'];
-                                } else {
-                                    echo ' ';
-                                }?>
+                            <?= $this->session->userdata('id')?>
                             </span>
                         <i class="gd-angle-down d-none d-md-block ml-2"></i>
                     </a>
 
                     <ul id="profileMenu" class="unfold unfold-user unfold-light unfold-top unfold-centered position-absolute pt-2 pb-1 mt-4 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="profileMenuInvoker" style="animation-duration: 300ms;">
-                        <?php if(isset($_SESSION['name'])){
-                            echo '<li class="unfold-item">
+                        <li class="unfold-item">
                                 <a class="unfold-link d-flex align-items-center text-nowrap" href="#">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-user"></i>
@@ -116,24 +114,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     My Profile
                                 </a>
                             </li>
-                            <li class="unfold-item unfold-item-has-divider">';
-                            } else {
-                            echo '<li class="unfold-item">';
-                            } ?>
-                                <a class="unfold-link d-flex align-items-center text-nowrap" href="
-                                    <?php if(isset($_SESSION['name'])){
-                                        echo '../controllers/proses.php?aksi=logout';
-                                    } else {
-                                        echo '../views';
-                                    } ?>">
+                            <li class="unfold-item unfold-item-has-divider">
+                                <li class="unfold-item">
+                                <a class="unfold-link d-flex align-items-center text-nowrap" href="<?php echo base_url() ?>Elmio/logout">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
-                                    </span>
-                                    <?php if(isset($_SESSION['name'])){
-                                        echo 'Sign Out';
-                                    } else {
-                                        echo 'Sign In';
-                                    } ?>
+                                    </span> Sign Out
                             </a>
                         </li>
                     </ul>
@@ -150,120 +136,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <aside id="sidebar" class="js-custom-scroll side-nav">
         <ul id="sideNav" class="side-nav-menu side-nav-menu-top-level mb-0">
             <!-- Title -->
-            <li class="sidebar-heading h6">Dashboard</li>
+            <li class="sidebar-heading h6">Navigasi Pembeli</li>
             <!-- End Title -->
 
-            <!-- Dashboard -->
+            <!-- Getting Started -->
             <li class="side-nav-menu-item">
-                <a class="side-nav-menu-link media align-items-center" href="main.php">
+                <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>User">
               <span class="side-nav-menu-icon d-flex mr-3">
-                <i class="gd-dashboard"></i>
+                <i class="gd-home"></i>
               </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Dashboard</span>
+                    <span class="side-nav-fadeout-on-closed media-body">Home Restaurant</span>
                 </a>
             </li>
-            <!-- End Dashboard -->
-
-            <!-- Add Order -->
-            <li class="side-nav-menu-item active">
-                <a class="side-nav-menu-link media align-items-center" href="order_input.php">
+            <!-- End Getting Started -->
+            
+            <!-- My Order -->
+            <li class="side-nav-menu-item side-nav-has-menu active side-nav-opened">
+                    <a class="side-nav-menu-link media align-items-center" href="#"
+                    data-target="#subOrders">
                     <span class="side-nav-menu-icon d-flex mr-3">
                         <i class="gd-shopping-cart"></i>
                     </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Add Order</span>
-                </a>
-            </li>
-            <!-- End Order -->  
-
-            <!-- Documentation --
-            <li class="side-nav-menu-item">
-                <a class="side-nav-menu-link media align-items-center" href="documentation/" target="_blank">
-                    <span class="side-nav-menu-icon d-flex mr-3">
-                        <i class="gd-file"></i>
-                    </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Documentation</span>
-                </a>
-            </li>
-            <-- End Documentation -->
-
-            <!-- Title --
-                <li class="sidebar-heading h6">Examples</li>
-            <-- End Title -->
-
-            <!-- Users -->
-            <li class="side-nav-menu-item side-nav-has-menu">
-                <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subUsers">
-                    <span class="side-nav-menu-icon d-flex mr-3">
-                        <i class="gd-user"></i>
-                    </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Users</span>
-                    <span class="side-nav-control-icon d-flex">
-                        <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-                    </span>
-                    <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
-                </a>
-
-                <!-- Users: subUsers -->
-                <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0">
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="users.php">All Users</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="users_input.php">Add new</a>
-                    </li>
-                </ul>
-                <!-- End Users: subUsers -->
-            </li>
-            <!-- End Users -->
-
-            <!-- Authentication --
-            <li class="side-nav-menu-item side-nav-has-menu">
-                <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subPages">
-                <span class="side-nav-menu-icon d-flex mr-3">
-                    <i class="gd-lock"></i>
-                </span>
-                <span class="side-nav-fadeout-on-closed media-body">Authentication</span>
-                <span class="side-nav-control-icon d-flex">
+                        <span class="side-nav-fadeout-on-closed media-body">Menus</span>
+                        <span class="side-nav-control-icon d-flex">
                     <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
                 </span>
-                <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
-                </a>
+                        <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
+                    </a>
 
-                <-- Pages: subPages --
-                <ul id="subPages" class="side-nav-menu side-nav-menu-second-level mb-0">
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="index.php">Login</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="register.php">Register</a>
-                    </li>
-                </ul>
-                <-- End Pages: subPages --
-            </li>
-            <-- End Authentication -->
-
-            <!-- Settings -->
-            <li class="side-nav-menu-item">
-                <a class="side-nav-menu-link media align-items-center" href="settings.php">
-              <span class="side-nav-menu-icon d-flex mr-3">
-                <i class="gd-settings"></i>
-              </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Settings</span>
-                </a>
-            </li>
-            <!-- End Settings -->
-
-            <!-- Static -->
-            <li class="side-nav-menu-item">
-                <a class="side-nav-menu-link media align-items-center" href="static-non-auth.php">
-              <span class="side-nav-menu-icon d-flex mr-3">
-                <i class="gd-file"></i>
-              </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Static page</span>
-                </a>
-            </li>
-            <!-- End Static -->
-
+                    <!-- Users: subUsers -->
+                    <ul id="subOrders" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
+                        <li class="side-nav-menu-item active">
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/order_input">Add some Order</a>
+                        </li>
+                        <li class="side-nav-menu-item">
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/lihat_order">See my Order</a>
+                        </li>
+                    </ul>
+                    <!-- End Users: subUsers -->
+                </li>
+            <!-- End My Order -->
         </ul>
     </aside>
     <!-- End Sidebar Nav -->
@@ -355,8 +267,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </main>
 
 
-<script src="../assets/js/graindashboard.js"></script>
-<script src="../assets/js/graindashboard.vendor.js"></script>
+<script src="<?php echo base_url()?>assets/js/graindashboard.js"></script>
+<script src="<?php echo base_url()?>assets/js/graindashboard.vendor.js"></script>
 
 </body>
 </html>

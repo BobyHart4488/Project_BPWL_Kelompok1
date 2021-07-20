@@ -9,7 +9,7 @@ if ($this->session->userdata('user') != 'admin') {
 
 <head>
     <!-- Title -->
-    <title>Dashboard | El' Mio</title>
+    <title>Admins | El' Mio</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -163,7 +163,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <!-- End Title -->
 
                 <!-- Dashboard -->
-                <li class="side-nav-menu-item active">
+                <li class="side-nav-menu-item">
                     <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>Admin">
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-dashboard"></i>
@@ -174,21 +174,22 @@ if ($this->session->userdata('user') != 'admin') {
                 <!-- End Dashboard -->
 
                 <!-- Admins -->
-                <li class="side-nav-menu-item side-nav-has-menu">
-                    <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subUsers">
-                        <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
-                        </span>
+                <li class="side-nav-menu-item side-nav-has-menu active side-nav-opened">
+                    <a class="side-nav-menu-link media align-items-center" href="#"
+                    data-target="#subUsers">
+                    <span class="side-nav-menu-icon d-flex mr-3">
+                        <i class="gd-user"></i>
+                    </span>
                         <span class="side-nav-fadeout-on-closed media-body">Admins</span>
                         <span class="side-nav-control-icon d-flex">
-                            <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-                        </span>
+                    <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
+                </span>
                         <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
                     </a>
 
                     <!-- Users: subUsers -->
-                    <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0">
-                        <li class="side-nav-menu-item">
+                    <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
+                        <li class="side-nav-menu-item active">
                             <a class="side-nav-menu-link" href="<?php echo base_url()?>Admin/admins">All Admins</a>
                         </li>
                         <li class="side-nav-menu-item">
@@ -210,7 +211,6 @@ if ($this->session->userdata('user') != 'admin') {
                 </li>
                 <!-- End Users -->
 
-                <!-- Menus -->
                 <!-- Menus -->
                 <li class="side-nav-menu-item side-nav-has-menu">
                     <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
@@ -246,9 +246,7 @@ if ($this->session->userdata('user') != 'admin') {
                     <div class="col-12">
                         <div class="card mb-3 mb-md-4">
                             <div class="card-header">
-                                <h5 class="font-weight-semi-bold mb-0">Recent Orders</h5>
-                                <a href="../customerorder_pdf_data.php" type="button" class="mx-3 my-3 btn btn-outline-dark">PDF</a>
-                                <a href="../customerorder_xls_data.php" type="button" class="mx-3 my-3 btn btn-outline-success">XLS</a>
+                                <h5 class="font-weight-semi-bold mb-0">List Admin</h5>
                             </div>
 
                             <div class="card-body pt-0">
@@ -256,20 +254,18 @@ if ($this->session->userdata('user') != 'admin') {
                                     <table class="table text-nowrap mb-0">
                                         <thead>
                                             <tr>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pesanan</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pembeli</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Total</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Admin</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Password</th>
                                                 <th class="font-weight-semi-bold border-top-0 py-2">Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $queryOrder = $this->pesanan_model->tampilPesanan();
-                                                foreach ($queryOrder as $rowPesanan) {
+                                            <?php $queryAdmin = $this->admin_model->tampilAdmin();
+                                                foreach ($queryAdmin as $rowAdmin) {
                                             ?>
                                             <tr>
-                                                <td class="py-3"><?php echo $rowPesanan->id_pesanan; ?></td>
-                                                <td class="py-3"><?php echo $rowPesanan->id_pembeli; ?></td>
-                                                <td class="py-3">Rp <?php echo $rowPesanan->total; ?></td>
+                                                <td class="py-3"><?php echo $rowAdmin->id_admin; ?></td>
+                                                <td class="py-3"><?php echo $rowAdmin->password; ?></td>
                                                 <td class="py-3">
                                                     <div class="position-relative">
                                                         <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
@@ -341,6 +337,7 @@ if ($this->session->userdata('user') != 'admin') {
 
     <script src="<?php echo base_url()?>assets/js/graindashboard.js"></script>
     <script src="<?php echo base_url()?>assets/js/graindashboard.vendor.js"></script>
+
 </body>
 
 </html>

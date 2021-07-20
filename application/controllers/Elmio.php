@@ -28,12 +28,16 @@ class Elmio extends CI_Controller {
     {
         $ID = $this->input->post('id');
         $password = $this->input->post('password');
-        $where = array(
+        $where1 = array(
             'id_admin' => $ID,
             'password' => $password
         );
-        $cek = $this->login_model->cek_login("admin", $where)->num_rows();
-		$cek_pem = $this->login_model->cek_login("user", $where)->num_rows();
+        $where2 = array(
+            'id_pembeli' => $ID,
+            'password' => $password
+        );
+        $cek = $this->login_model->cek_login("admin", $where1)->num_rows();
+		$cek_pem = $this->login_model->cek_login("pembeli", $where2)->num_rows();
         if ($cek > 0) {
             $data_session = array(
                 'id' => $ID,
@@ -55,7 +59,39 @@ class Elmio extends CI_Controller {
 			redirect(base_url("User"));
 		}
 		else {
-            echo "Username dan password salah !";
+            redirect(base_url());
+        }
+    }
+
+    public function aksi_register()
+    {
+        $ID = $this->input->post('id');
+        $nama = $this->input->post('nama');
+        $password = $this->input->post('password');
+        $password_cnfrm = $this->input->post('password_confirmation');
+        if($password == $password_cnfrm) {
+            $data = array(
+                'id_pembeli' => $ID,
+                'nama' => $nama,
+                'password' => $password
+            );
+            $cek = $this->login_model->register("pembeli", $data);
+
+            if($cek) {
+                $data_session = array(
+                    'id' => $ID,
+                    'status' => "login",
+                    'user' => "user"
+                );
+    
+                $this->session->set_userdata($data_session);
+                redirect(base_url("User"));
+            }
+        }
+        
+        
+		else {
+            redirect(base_url());
         }
     }
 
@@ -66,6 +102,6 @@ class Elmio extends CI_Controller {
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect(base_url('login'));
+        redirect(base_url());
     }
 }

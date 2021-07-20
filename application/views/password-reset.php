@@ -5,17 +5,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
   <head>
     <!-- Title -->
-    <title>Reset Password | Graindashboard UI Kit</title>
+    <title>Reset Password | El' Mio</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/img/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url()?>assets/img/favicon.ico">
 
     <!-- Template -->
-    <link rel="stylesheet" href="../assets/css/graindashboard.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/graindashboard.css">
   </head>
 
   <body class="">
@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row justify-content-md-center">
 					<div class="card-wrapper col-12 col-md-4 mt-5">
 						<div class="brand text-center mb-3">
-							<a href="#"><img src="../assets/img/logo.png"></a>
+							<a href="#"><img src="<?php echo base_url()?>assets/img/logo.png"></a>
 						</div>
 						<div class="card">
 							<div class="card-body">
@@ -69,8 +69,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </main>
 
 
-	<script src="../assets/js/graindashboard.js"></script>
-    <script src="../assets/js/graindashboard.vendor.js"></script>
+	<script src="<?php echo base_url()?>assets/js/graindashboard.js"></script>
+    <script src="<?php echo base_url()?>assets/js/graindashboard.vendor.js"></script>
     
   </body>
 </html>
