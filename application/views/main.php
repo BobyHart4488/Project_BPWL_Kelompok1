@@ -170,16 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </li>
                 <!-- End Dashboard -->
 
-                <!-- Add Order -->
-                <li class="side-nav-menu-item">
-                    <a class="side-nav-menu-link media align-items-center" href="order_input.php">
-                        <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-shopping-cart"></i>
-                        </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Add Order</span>
-                    </a>
-                </li>
-                <!-- End Order -->
+                
 
                 <!-- Documentation --
                 <li class="side-nav-menu-item">

@@ -12,10 +12,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/img/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url() ?>assets/img/favicon.ico">
 
     <!-- Template -->
-    <link rel="stylesheet" href="../assets/css/graindashboard.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/graindashboard.css">
 </head>
 
 <body class="has-sidebar has-fixed-sidebar-and-header">
@@ -24,25 +24,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <nav class="navbar flex-nowrap p-0">
         <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
             <!-- Logo For Mobile View -->
-            <a class="navbar-brand navbar-brand-mobile" href="
-                <?php if(isset($_SESSION['name'])){
-                    echo 'home.php';
-                } else {
-                    echo '../controllers/proses.php?aksi=logout';
-                }?>">
-                <img class="img-fluid w-100" src="../assets/img/logo-mini.png" alt="Graindashboard">
+            <a class="navbar-brand navbar-brand-mobile" href="">
+                <img class="img-fluid w-100" src="<?php echo base_url() ?>assets/img/logo-mini.png" alt="Graindashboard">
             </a>
             <!-- End Logo For Mobile View -->
 
             <!-- Logo For Desktop View -->
-            <a class="navbar-brand navbar-brand-desktop" href="
-                <?php if(isset($_SESSION['name'])){
-                    echo 'home.php';
-                } else {
-                    echo '../controllers/proses.php?aksi=logout';
-                }?>">
-                <img class="side-nav-show-on-closed" src="../assets/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
-                <img class="side-nav-hide-on-closed" src="../assets/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
+            <a class="navbar-brand navbar-brand-desktop" href="">
+                <img class="side-nav-show-on-closed" src="<?php echo base_url() ?>assets/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
+                <img class="side-nav-hide-on-closed" src="<?php echo base_url() ?>assets/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
             </a>
             <!-- End Logo For Desktop View -->
         </div>
@@ -120,11 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             data-unfold-animation-out="fadeOut">
                             <!--img class="avatar rounded-circle mr-md-2" src="#" alt="John Doe"-->
                             <span class="d-none d-md-block">
-                                <?php if(isset($_SESSION['name'])){
-                                    echo $_SESSION['name'];
-                                } else {
-                                    echo ' ';
-                                }?>
+                                
                             </span>
                             <i class="gd-angle-down d-none d-md-block ml-2"></i>
                         </a>
@@ -132,8 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <ul id="profileMenu"
                             class="unfold unfold-user unfold-light unfold-top unfold-centered position-absolute pt-2 pb-1 mt-4 unfold-css-animation unfold-hidden fadeOut"
                             aria-labelledby="profileMenuInvoker" style="animation-duration: 300ms;">
-                            <?php if(isset($_SESSION['name'])){
-                            echo '<li class="unfold-item">
+                            <li class="unfold-item">
                                 <a class="unfold-link d-flex align-items-center text-nowrap" href="#">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-user"></i>
@@ -141,24 +126,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     My Profile
                                 </a>
                             </li>
-                            <li class="unfold-item unfold-item-has-divider">';
-                            } else {
-                            echo '<li class="unfold-item">';
-                            } ?>
-                                <a class="unfold-link d-flex align-items-center text-nowrap" href="
-                                    <?php if(isset($_SESSION['name'])){
-                                        echo '../controllers/proses.php?aksi=logout';
-                                    } else {
-                                        echo '../views';
-                                    } ?>">
+                            <li class="unfold-item unfold-item-has-divider">
+                            <li class="unfold-item">
+                                <a class="unfold-link d-flex align-items-center text-nowrap" href=" ">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
                                     </span>
-                                    <?php if(isset($_SESSION['name'])){
-                                        echo 'Sign Out';
-                                    } else {
-                                        echo 'Sign In';
-                                    } ?>
+                                    Sign Out
                                 </a>
                             </li>
                         </ul>
@@ -188,127 +162,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </a>
             </li>
             <!-- End Getting Started -->
-
-            <!-- UI Components -->
-            <li class="side-nav-menu-item side-nav-has-menu">
-                <a class="side-nav-menu-link media align-items-center" href="#"
-                   data-target="#subComponents">
-                  <span class="side-nav-menu-icon d-flex mr-3">
-                    <i class="gd-panel"></i>
-                  </span>
-                    <span class="side-nav-fadeout-on-closed media-body">UI Components</span>
-                    <span class="side-nav-control-icon d-flex">
-                <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-              </span>
-                    <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
-                </a>
-
-                <!-- UI Components: subComponents -->
-                <ul id="subComponents" class="side-nav-menu side-nav-menu-second-level mb-0">
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="avatars.php">Avatars</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="alerts.php">Alerts</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="buttons.php">Buttons</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="breadcrumbs.php">Breadcrumbs</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="badges.php">Badges</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="cards.php">Cards</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="collapse.php">Collapse</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="dropdowns.php">Dropdowns</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="forms.php">Forms</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="icons.php">Icons</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="modals.php">Modals</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="navs.php">Navs</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="progress.php">Progress</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="pagination.php">Pagination</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="spinners.php">Spinners</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="toasts.php">Toasts</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="tables.php">Tables</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="typography.php">Typography</a>
-                    </li>
-                </ul>
-                <!-- End UI Components: subComponents -->
-            </li>
-            <!-- End UI Components -->
-
-            <!-- Utils -->
-            <li class="side-nav-menu-item side-nav-has-menu">
-                <a class="side-nav-menu-link media align-items-center" href="#"
-                   data-target="#subUtils">
-                  <span class="side-nav-menu-icon d-flex mr-3">
-                    <i class="gd-desktop"></i>
-                  </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Utils</span>
-                    <span class="side-nav-control-icon d-flex">
-                <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-              </span>
-                    <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
-                </a>
-
-                <!-- Utils: subUtils -->
-                <ul id="subUtils" class="side-nav-menu side-nav-menu-second-level mb-0">
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="background.php">Background</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="borders.php">Borders</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="colors.php">Colors</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="links.php">Links</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="positions.php">Positions</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="spacing.php">Spacing</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="transitions.php">Transitions</a>
-                    </li>
-                    <li class="side-nav-menu-item">
-                        <a class="side-nav-menu-link" href="other.php">Other</a>
-                    </li>
-                </ul>
-                <!-- End Utils: subUtils -->
-            </li>
-            <!-- End Utils -->
-
+            <!-- Add Order -->
+            <li class="side-nav-menu-item">
+                    <a class="side-nav-menu-link media align-items-center" href="order_input.php">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-shopping-cart"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed media-body">Add Order</span>
+                    </a>
+                </li>
+                <!-- End Order -->
         </ul>
     </aside>
     <!-- End Sidebar Nav -->
@@ -449,8 +312,8 @@ npm run production
 </main>
 
 
-<script src="../assets/js/graindashboard.js"></script>
-<script src="../assets/js/graindashboard.vendor.js"></script>
+<script src="<?php echo base_url() ?>assets/js/graindashboard.js"></script>
+<script src="<?php echo base_url() ?>assets/js/graindashboard.vendor.js"></script>
 
 </body>
 </html>
