@@ -24,34 +24,76 @@ class Admin extends CI_Controller {
 		$this->load->model('admin_model');
 	}
 	
+	// Admin
 	public function index()
 	{
 		$this->load->view('main');
 	}
-	public function createAdmin(){
-		$this->admin_model->createdAdmin();
+	// Tambah Data Admin
+	public function c_tambahAdmin(){
+		$this->admin_model->tambahAdmin();
 		print_r($id_admin);
-		redirect('main');
+		redirect('Admin');
 	}
-	public function deleteAdmin($id_admin){
-		$this->admin_model->deleteDataAdmin($id_admin);
-		redirect('main');
-	}
-
-	public function indexPesanan(){
-		$data['hasil'] = $this->pesanan_model->getDataPesanan();
+	// Tampil Data Admin
+	public function c_tampilAdmin(){
+		$this->load->helper('url');
+		$data['hasil'] = $this->admin_model->tampilAdmin();
 		$this->load->view('main', $data);
 	}
-	public function editPesanan($id_pesanan){
-		$data['row'] = $this->pesanan_model->getDataUpdatePesanan($id_pesanan);
+	//Hapus Data Admin
+	public function c_hapusAdmin($id_admin){
+		$this->admin_model->hapusAdmin($id_admin);
+		redirect('Admin');
+	}
+
+	// Tampil Data Pesanan
+	public function c_tampilPesanan(){
+		$this->load->helper('url');
+		$data['hasil'] = $this->pesanan_model->tampilPesanan();
+		$this->load->view('main', $data);
+	}
+	// Tampil Data Pesanan berdasarkan ID_Pesanan
+	public function c_rowUbahPesanan($id_pesanan){
+		$data['row'] = $this->pesanan_model->rowUbahPesanan($id_pesanan);
 		$this->load->view('main_edit', $data);
 	}
-	public function updatePesanan($id_pesanan){
-		$this->pesanan_model->updateDataPesanan($id_pesanan);
-		redirect('main');
+	// Edit Data Pesanan
+	public function c_ubahPesanan($id_pesanan){
+		$this->pesanan_model->ubahPesanan($id_pesanan);
+		redirect('Admin');
 	}
-	public function deletePesanan($id_pesanan){
-		$this->pesanan_model->deleteDataPesanan($id_pesanan);
-		redirect('main');
+	// Hapus Data Pesanan
+	public function c_hapusPesanan($id_pesanan){
+		$this->pesanan_model->hapusPesanan($id_pesanan);
+		redirect('Admin');
+	}
+
+	// Tampil Data Menu
+	public function c_tampilMenu(){
+		$this->load->helper('url');
+		$data['hasil'] = $this->menu_model->tampilMenu();
+		$this->load->view('main', $data);
+	}
+	// Tambah Data Menu
+	public function c_tambahMenu(){
+		$this->menu_model->tambahMenu();
+		print_r($id_menu);
+		redirect('Admin');
+	}
+	// Tampil Data Menu berdasarkan ID_Menu
+	public function c_rowUbahMenu($id_menu){
+		$data['row'] = $this->menu_model->rowUbahMenu($id_menu);
+		$this->load->view('main_edit', $data);
+	}
+	// Edit Data Menu
+	public function c_ubahMenu($id_menu){
+		$this->menu_model->ubahMenu($id_menu);
+		redirect('Admin');
+	}
+	// Hapus Data Menu
+	public function c_hapusMenu($id_menu){
+		$this->menu_model->hapusMenu($id_menu);
+		redirect('Admin');
 	}
 }

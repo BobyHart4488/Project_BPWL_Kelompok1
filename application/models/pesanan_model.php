@@ -23,15 +23,24 @@ class Pesanan_model extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 	}
-	function getDataPesanan(){
+	function tampilPesanan(){
 		$query = $this->db->query('SELECT * FROM pesanan');
 		return $query->result();
 	}
-	function getDataUpdatePesanan($id_pesanan){
+	function tambahPesanan()
+	{
+		$data = array(
+			'id_pesanan' => $this->input->post('id_pesanan'),
+			'id_pembeli' => $this->input->post('id_pembeli'),
+			'total' => $this->input->post('total')
+		);
+		$this->db->insert('pesanan', $data);
+	}
+	function rowUbahPesanan($id_pesanan){
 		$query = $this->db->query("SELECT * FROM pesanan WHERE id_pesanan = '$id_pesanan'");
 		return $query->row();
 	}
-	function updateDataPesanan($id_pesanan){
+	function ubahPesanan($id_pesanan){
 		$data = array(
 			'id_pesanan' => $this->input->post('id_pesanan'),
 			'id_pembeli' => $this->input->post('id_pembeli'),
@@ -40,7 +49,7 @@ class Pesanan_model extends CI_Model {
 		$this->db->where('id_pesanan',$id_pesanan);
 		$this->db->update('pesanan', $data);
 	}
-	function deleteDataPesanan($id_pesanan){
+	function hapusPesanan($id_pesanan){
 		$query = $this->db->query("DELETE FROM pesanan WHERE id_pesanan = '$id_pesanan'");
 	}
 }

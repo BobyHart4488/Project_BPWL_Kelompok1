@@ -21,16 +21,39 @@ class Menu_model extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
-		//$this->load->model('model_customer');
+		$this->load->database();
 	}
-	
-	public function index()
-	{
-		$this->load->view('index');
+	function tampilMenu(){
+		$query = $this->db->query('SELECT * FROM menu');
+		return $query->result();
 	}
-
-	public function register()
+	function tambahMenu()
 	{
-		$this->load->view('register');
+		$data = array(
+			'id_menu' => $this->input->post('id_menu'),
+			'nama' => $this->input->post('nama'),
+			'jenis' => $this->input->post('jenis'),
+			'harga' => $this->input->post('harga'),
+			'persediaan' => $this->input->post('persediaan')
+		);
+		$this->db->insert('menu', $data);
+	}
+	function rowUbahMenu($id_menu){
+		$query = $this->db->query("SELECT * FROM menu WHERE id_menu = '$id_menu'");
+		return $query->row();
+	}
+	function ubahMenu($id_menu){
+		$data = array(
+			'id_menu' => $this->input->post('id_menu'),
+			'nama' => $this->input->post('nama'),
+			'jenis' => $this->input->post('jenis'),
+			'harga' => $this->input->post('harga'),
+			'persediaan' => $this->input->post('persediaan')
+		);
+		$this->db->where('id_menu',$id_menu);
+		$this->db->update('menu', $data);
+	}
+	function hapusMenu($id_menu){
+		$query = $this->db->query("DELETE FROM menu WHERE id_menu = '$id_menu'");
 	}
 }

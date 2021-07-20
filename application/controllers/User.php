@@ -21,16 +21,49 @@ class User extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		//$this->load->model('user_model');
+		$this->load->model('user_model');
 	}
 	
 	public function index()
 	{
-		$this->load->view('index');
+		$this->load->view('home');
 	}
 
-	public function register()
-	{
-		$this->load->view('register');
+	// Tambah Data Pembeli
+	public function c_tambahUser(){
+		$this->user_model->tambahUser();
+		print_r($id_pembeli);
+		redirect('User');
+	}
+	// Tampil Data Pembeli
+	public function c_tampilUser(){
+		$this->load->helper('url');
+		$data['hasil'] = $this->user_model->tampilUser();
+		$this->load->view('home', $data);
+	}
+	// Hapus Data Pembeli
+	public function c_hapusUser($id_pembeli){
+		$this->user_model->hapusUser($id_pembeli);
+		redirect('User');
+	}
+
+	// Tampil Data Menu
+	public function c_tampilMenu(){
+		$this->load->helper('url');
+		$data['hasil'] = $this->menu_model->tampilMenu();
+		$this->load->view('home', $data);
+	}
+
+	// Tambah Data Pesanan
+	public function c_tambahPesanan(){
+		$this->pesanan_model->tambahPesanan();
+		print_r($id_pesanan);
+		redirect('User');
+	}
+	// Tampil Data Pesanan
+	public function c_tampilPesanan(){
+		$this->load->helper('url');
+		$data['hasil'] = $this->pesanan_model->tampilPesanan();
+		$this->load->view('home', $data);
 	}
 }

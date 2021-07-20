@@ -23,7 +23,7 @@ class Admin_model extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 	}
-	function createdAdmin()
+	function tambahAdmin()
 	{
 		$data = array(
 			'id_admin' => $this->input->post('id_admin'),
@@ -31,7 +31,11 @@ class Admin_model extends CI_Model {
 		);
 		$this->db->insert('admin', $data);
 	}
-	function deleteDataAdmin($id_admin){
+	function tampilAdmin(){
+		$query = $this->db->query('SELECT * FROM admin');
+		return $query->result();
+	}
+	function hapusAdmin($id_admin){
 		$query = $this->db->query("DELETE FROM admin WHERE id_admin = '$id_admin'");
 	}
 }
