@@ -205,92 +205,47 @@ if ($this->session->userdata('user') != 'user') {
                             <table class="table text-nowrap mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">#</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">Customer</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">Phone</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">Amount</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-4">ID Pesanan</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-4">Total</th>
+                                        <th class="font-weight-semi-bold border-top-0 py-4">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="py-3">149531</td>
-                                        <td class="py-3">
-                                            <div>John Doe</div>
-                                            <div class="text-muted">Acme Inc.</div>
-                                        </td>
-                                        <td class="py-3">(000) 111-1234</td>
-                                        <td class="py-3">$1,230.00</td>
-                                    </tr>
+                                    <?php $queryOrder = $this->pesanan_model->tampilPesananPembeli($this->session->userdata('id'));
+                                                foreach ($queryOrder as $rowPesanan) {
+                                            ?>
+                                            <tr>
+                                                <td class="py-3"><?php echo $rowPesanan->id_pesanan; ?></td>
+                                                <td class="py-3">Rp <?php echo $rowPesanan->total; ?></td>
+                                                <td class="py-3">
+                                                    <div class="position-relative">
+                                                        <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
+                                                            <i class="gd-more-alt icon-text"></i>
+                                                        </a>
+
+                                                        <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
+                                                            <li class="unfold-item">
+                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
+                                                                    <i class="gd-pencil unfold-item-icon mr-3"></i>
+                                                                    <span class="media-body">Edit</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="unfold-item">
+                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
+                                                                    <i class="gd-close unfold-item-icon mr-3"></i>
+                                                                    <span class="media-body">Delete</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-        </div>
-
-        <div class="py-4 px-3 px-md-4">
-
-            <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                <div class="h3 mb-0">Getting Started</div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h4 class="card-title">Introduction</h4>
-                    <p><strong>Graindashboard</strong> &mdash; is a responsive Web-Application UI Kit (HTML Admin Template), designed to be easily implemented to any web-application. It's build on Bootstrap 4 and uses <a href="https://github.com/JeffreyWay/laravel-mix" target="_blank">Laravel Mix</a> (a webpack wrapper) as a build tool.</p>
-                    <p>Graindashboard comes with <strong>Laravel Starter Kit</strong> and could be implemented into new and existing Laravel application in no time.</p>
-                    <p><strong>Laravel Starter Kit</strong> includes the following:</p>
-                    <ul>
-                        <li>Ready-to-use <strong>webpack.mix.js</strong> and <strong>package.json</strong>;</li>
-                        <li>Sample <strong>routes file</strong>;</li>
-                        <li>All necessary <strong>Blade Views</strong>, including: <strong>auth pages, users list, user create/edit form, edit profile,</strong> etc;</li>
-                        <li>Sample <strong>Controllers</strong> to manage users (CRUD) and update profile settings;</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h4 class="card-title">Installation</h4>
-                    <p>Graindashboard is ready to use out-of-the-box, just copy compiled assets from <strong>/public/</strong> directory to your project. If you want to customize the theme, you may use built-in NPM commands to re-compile theme assets.</p>
-                    <p><strong>Available NPM commands:</strong></p>
-<pre>
-npm run watch
-npm run dev
-npm run production
-</pre>
-                    <p>To customize the build process, you'll need to edit the <strong>webpack.mix.js</strong> file. For more information, please visit the Laravel Mix <a href="https://laravel-mix.com/docs/4.0/basic-example/tree/master/docs#readme" target="_blank">official documentation</a>.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Use Graindashboard in Laravel application</h4>
-                    <p>Graindashboard comes with <strong>Laravel Starter Kit</strong> and could be implemented into new and existing Laravel application in no time.</p>
-
-                    <div class="alert alert-warning" role="alert">
-                        <strong class="d-block mb-1">Attention! Be careful!</strong>
-                        <p>If you're installing Graindashboard into <strong>existing Laravel application</strong>, make sure you won't overwrite your existing views, controllers, routes and other important files.</p>
-                    </div>
-
-                    <p><strong>Please, note:</strong> All controllers and routes are provided just for an example, feel free to replace these files with your own.</p>
-
-                    <p>To add Graindashboard into Laravel application, do the following:</p>
-                    <ol>
-                        <li class="mb-1">Scaffold default Laravel authentication by using the following command: <code>php artisan make:auth</code> and run migrations by <code>php artisan migrate</code></li>
-                        <li class="mb-1">Update <strong>webpack.mix.js</strong> and <strong>package.json</strong>, see examples in <strong>/laravel/</strong> folder</li>
-                        <li class="mb-1">Copy theme assets <strong>/laravel/resources/graindashboard/</strong> to <strong>/YOUR_APP/resources/graindashboard/</strong></li>
-                        <li class="mb-1">Copy views files <strong>/laravel/resources/views/</strong> to <strong>/YOUR_APP/resources/views/</strong></li>
-                        <li class="mb-1">Copy images from <strong>/laravel/public/img/</strong> to <strong>/YOUR_APP/public/img/</strong>.</li>
-                        <li class="mb-1">Copy controllers from <strong>/laravel/controllers/</strong> to <strong>/YOUR_APP/app/Http/Controllers/</strong></li>
-                        <li class="mb-1">Update routes file, see <strong>/larave/routes/web.php</strong> as example</li>
-                        <li class="mb-1">Build assets by running <code>npm install</code> and <code>npm run production</code></li>
-                    </ol>
-                </div>
-            </div>
-
-
-
         </div>
 
         <!-- Footer -->

@@ -5,6 +5,8 @@ class User extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('menu_model');
+		$this->load->model('pesanan_model');
 	}
 	
 	public function index()
@@ -17,12 +19,7 @@ class User extends CI_Controller {
 		$this->load->view('order_input');
 	}
 
-	// Tambah Data Pembeli
-	public function c_tambahUser(){
-		$this->user_model->tambahUser();
-		print_r($id_pembeli);
-		redirect('User');
-	}
+	
 	// Tampil Data Pembeli
 	public function c_tampilUser(){
 		$this->load->helper('url');
@@ -45,7 +42,6 @@ class User extends CI_Controller {
 	// Tambah Data Pesanan
 	public function c_tambahPesanan(){
 		$this->pesanan_model->tambahPesanan();
-		print_r($id_pesanan);
 		redirect('User');
 	}
 

@@ -12,6 +12,11 @@ class Pesanan_model extends CI_Model {
 		return $query->result();
 	}
 
+	function tampilPesananPembeli($id_pembeli){
+		$query = $this->db->query("SELECT * FROM pesanan WHERE id_pembeli='$id_pembeli'");
+		return $query->result();
+	}
+
 	function tambahPesanan()
 	{
 		$data = array(

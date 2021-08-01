@@ -247,8 +247,6 @@ if ($this->session->userdata('user') != 'admin') {
                         <div class="card mb-3 mb-md-4">
                             <div class="card-header">
                                 <h5 class="font-weight-semi-bold mb-0">Recent Orders</h5>
-                                <a href="../customerorder_pdf_data.php" type="button" class="mx-3 my-3 btn btn-outline-dark">PDF</a>
-                                <a href="../customerorder_xls_data.php" type="button" class="mx-3 my-3 btn btn-outline-success">XLS</a>
                             </div>
 
                             <div class="card-body pt-0">

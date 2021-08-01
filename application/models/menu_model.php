@@ -14,14 +14,11 @@ class Menu_model extends CI_Model {
 
 	function tambahMenu()
 	{
-		$data = array(
-			'id_menu' => $this->input->post('id_menu'),
-			'nama' => $this->input->post('nama_menu'),
-			'jenis' => $this->input->post('jenis'),
-			'harga' => $this->input->post('harga'),
-			'persediaan' => $this->input->post('persediaan')
-		);
-		$this->db->insert('menu', $data);
+		$nama = $this->input->post('nama_menu');
+		$jenis = $this->input->post('jenis');
+		$harga = $this->input->post('harga');
+		$persediaan = $this->input->post('persediaan');
+		$this->db->query("INSERT INTO menu VALUES (CONCAT('M_',LPAD(NEXTVAL(Menu_ID),3,0)),'$nama','$jenis','$harga','$persediaan')");
 		redirect(base_url("Admin/menus"));
 	}
 

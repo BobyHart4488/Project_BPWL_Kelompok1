@@ -243,24 +243,24 @@ if ($this->session->userdata('user') != 'admin') {
                         <form action="<?php echo base_url()?>Admin/c_tambahMenu" method="POST">
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
-                                    <label for="id_menu">ID Menu</label>
-                                    <input type="text" class="form-control" value="" id="id_menu" name="id_menu">
-                                </div>
-                                <div class="form-group col-12 col-md-6">
                                     <label for="nama_menu">Nama Menu</label>
                                     <input type="text" class="form-control" value="" id="nama_menu" name="nama_menu">
                                 </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="jenis">Jenis</label>
+                                    <select class="input custom-select" name="jenis" id="validationCustom04" required>
+                                        <option selected disabled value="">Pilih Jenis</option>
+                                        <option value="Makanan">Makanan</option>
+                                        <option value="Minuman">Minuman</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-12 col-md-4">
-                                    <label for="jenis">Jenis</label>
-                                    <input type="text" class="form-control" value="" id="jenis" name="jenis">
-                                </div>
-                                <div class="form-group col-12 col-md-4">
+                                <div class="form-group col-12 col-md-6">
                                     <label for="harga">Harga</label>
                                     <input type="number" class="form-control" value="" min="0" id="harga" name="harga">
                                 </div>
-                                <div class="form-group col-12 col-md-4">
+                                <div class="form-group col-12 col-md-6">
                                     <label for="persediaan">Persediaan</label>
                                     <input type="number" class="form-control" value="" min="0" id="persediaan" name="persediaan">
                                 </div>

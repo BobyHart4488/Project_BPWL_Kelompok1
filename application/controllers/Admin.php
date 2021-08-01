@@ -49,7 +49,6 @@ class Admin extends CI_Controller {
 	// Tambah Data Admin
 	public function c_tambahAdmin(){
 		$this->admin_model->tambahAdmin();
-		print_r($id_admin);
 		redirect('Admin/admins');
 	}
 
@@ -101,7 +100,6 @@ class Admin extends CI_Controller {
 	// Tambah Data Menu
 	public function c_tambahMenu(){
 		$this->menu_model->tambahMenu();
-		print_r($id_menu);
 		redirect('Admin');
 	}
 
