@@ -268,24 +268,14 @@ if ($this->session->userdata('user') != 'admin') {
                                                 <td class="py-3"><?php echo $rowAdmin->password; ?></td>
                                                 <td class="py-3">
                                                     <div class="position-relative">
-                                                        <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
-                                                            <i class="gd-more-alt icon-text"></i>
+                                                        <a class="link-dark d-inline-block"
+                                                            href="<?= site_url('Admin/c_rowUbahAdmin')?>/<?= $rowAdmin->id_admin ?>">
+                                                            <i class="gd-pencil icon-text"></i>
                                                         </a>
-
-                                                        <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-pencil unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Edit</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-close unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Delete</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                        <a class="link-dark d-inline-block"
+                                                            href="<?= site_url('Admin/c_hapusAdmin')?>/<?= $rowAdmin->id_admin ?>">
+                                                            <i class="gd-trash icon-text"></i>
+                                                        </a>
                                                     </div>
                                                 </td>
                                             </tr>

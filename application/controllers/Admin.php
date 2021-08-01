@@ -31,6 +31,11 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_input');
 	}
 
+	public function admin_edit()
+	{
+		$this->load->view('admin_edit');
+	}
+
 	public function orders()
 	{
 		$this->load->view('orders');
@@ -57,6 +62,18 @@ class Admin extends CI_Controller {
 		$this->load->helper('url');
 		$data['hasil'] = $this->admin_model->tampilAdmin();
 		$this->load->view('main', $data);
+	}
+
+	// Tampil Data Admin berdasarkan ID_Admin, view
+	public function c_rowUbahAdmin($id_admin){
+		$data['row'] = $this->admin_model->rowUbahAdmin($id_admin);
+		$this->load->view('admin_edit', $data);
+	}
+
+	// Edit Data Admin, edit
+	public function c_ubahAdmin($id_admin){
+		$this->admin_model->ubahAdmin($id_admin);
+		redirect('Admin/admins');
 	}
 
 	//Hapus Data Admin

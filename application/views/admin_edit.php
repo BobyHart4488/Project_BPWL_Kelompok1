@@ -226,44 +226,34 @@ if ($this->session->userdata('user') != 'admin') {
                     <nav class="d-none d-md-block" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Orders</a>
+                                <a href="#">Admin</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Order</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Admin</li>
                         </ol>
                     </nav>
                     <!-- End Breadcrumb -->
 
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                        <div class="h3 mb-0">Edit Order</div>
+                        <div class="h3 mb-0">Edit Admin</div>
                     </div>
 
 
                     <!-- Form -->
                     <div>
-                        <form action="../controllers/proses.php?aksi=update_order" method="POST">
-                            <?php
-                                foreach ($db->edit_order($_GET['id']) as $customerorder){
-                            ?>
-                            <input type="hidden" id="idOrder" name="idOrder" value="<?php echo $customerorder['idOrder'] ?>">
-                            <div class="form-row">
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="name">Customer Name</label>
-                                    <input type="text" class="form-control" value="<?php echo $customerorder['customer_name'] ?>" id="customer_name" name="customer_name" placeholder="Customer Name">
-                                </div>
-                                <div class="form-group col-12 col-md-6">
-                                    <label for="phone_number">Phone Number</label>
-                                    <input type="text" class="form-control" value="<?php echo $customerorder['phone_number'] ?>" id="phone_number" name="phone_number" placeholder="Phone Number">
-                                </div>
+                        <form method="POST" action="<?= site_url('Admin/c_ubahAdmin')?>/<?= $row['id_admin'] ?>">
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="name">ID Admin</label>
+                                <input type="text" class="form-control" value="<?php echo $row['id_admin'] ?>" id="id_admin" name="id_admin" placeholder="ID Admin">
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-12 col-md-12">
-                                    <label for="amount">Amount of Order Fee</label>
-                                    <input type="number" class="form-control" value="<?php echo $customerorder['amount'] ?>" id="amount" name="amount" placeholder="Add Password">
-                                </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="name">Password</label>
+                                <input type="text" class="form-control" value="<?php echo $row['password'] ?>" id="password" name="password" placeholder="Password">
                             </div>
-                            <?php } ?>
-
-                            <button type="submit" name="editUser" class="btn btn-primary float-right">Edit</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-right">Edit</button>
                         </form>
                     </div>
                     <!-- End Form -->
