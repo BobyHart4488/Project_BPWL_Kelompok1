@@ -135,6 +135,6 @@ class Admin extends CI_Controller {
 	// Hapus Data Menu
 	public function c_hapusMenu($id_menu){
 		$this->menu_model->hapusMenu($id_menu);
-		redirect('Admin');
+		redirect('Admin/menus');
 	}
 }
