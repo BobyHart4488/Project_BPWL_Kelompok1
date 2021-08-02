@@ -240,17 +240,17 @@ if ($this->session->userdata('user') != 'admin') {
 
                     <!-- Form -->
                     <div>
-                        <form method="POST" action="<?= site_url('Admin/c_ubahAdmin')?>/<?= $row['id_admin'] ?>">
+                        <form method="POST" action="<?= site_url('Admin/c_ubahAdmin')?>/<?= $row->id_admin ?>">
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="name">ID Admin</label>
-                                <input type="text" class="form-control" value="<?php echo $row['id_admin'] ?>" id="id_admin" name="id_admin" placeholder="ID Admin">
+                                <input type="text" class="form-control" value="<?php echo $row->id_admin ?>" id="id_admin" name="id_admin" placeholder="ID Admin">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="name">Password</label>
-                                <input type="text" class="form-control" value="<?php echo $row['password'] ?>" id="password" name="password" placeholder="Password">
+                                <input type="text" class="form-control" value="<?php echo $row->password ?>" id="password" name="password" placeholder="Password">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary float-right">Edit</button>

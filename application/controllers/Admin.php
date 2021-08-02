@@ -51,6 +51,11 @@ class Admin extends CI_Controller {
 		$this->load->view('menu_input');
 	}
 
+	public function menu_edit()
+	{
+		$this->load->view('menu_edit');
+	}
+
 	// Tambah Data Admin
 	public function c_tambahAdmin(){
 		$this->admin_model->tambahAdmin();
@@ -123,13 +128,13 @@ class Admin extends CI_Controller {
 	// Tampil Data Menu berdasarkan ID_Menu
 	public function c_rowUbahMenu($id_menu){
 		$data['row'] = $this->menu_model->rowUbahMenu($id_menu);
-		$this->load->view('main_edit', $data);
+		$this->load->view('menu_edit', $data);
 	}
 
 	// Edit Data Menu
 	public function c_ubahMenu($id_menu){
 		$this->menu_model->ubahMenu($id_menu);
-		redirect('Admin');
+		redirect('Admin/menus');
 	}
 
 	// Hapus Data Menu

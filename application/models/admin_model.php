@@ -22,7 +22,7 @@ class Admin_model extends CI_Model {
 	}
 
 	function rowUbahAdmin($id_admin){
-		$query = $this->db->query("SELECT * FROM admin WHERE id_admin = 'id_admin'");
+		$query = $this->db->query("SELECT * FROM admin WHERE id_admin = '$id_admin'");
 		return $query->row();
 	}
 
@@ -31,7 +31,7 @@ class Admin_model extends CI_Model {
 			'id_admin' => $this->input->post('id_admin'),
 			'password' => $this->input->post('password')
 		);
-		$this->db->where('id_admin',id_menu);
+		$this->db->where('id_admin',$id_admin);
 		$this->db->update('admin', $data);
 	}
 

@@ -275,11 +275,11 @@ if ($this->session->userdata('user') != 'admin') {
                                                 <td class="py-3">
                                                     <div class="position-relative">
                                                         <a class="link-dark d-inline-block"
-                                                            href="#">
+                                                            href="<?= site_url('Admin/c_rowUbahMenu')?>/<?= $rowMenu->id_menu ?>">
                                                             <i class="gd-pencil icon-text"></i>
                                                         </a>
                                                         <a class="link-dark d-inline-block"
-                                                            href="<?php echo base_url()?>Admin/c_hapusMenu/<?php echo $rowMenu->id_menu; ?>">
+                                                            href="<?= site_url('Admin/c_hapusMenu')?>/<?= $rowMenu->id_menu ?>">
                                                             <i class="gd-trash icon-text"></i>
                                                         </a>
                                                     </div>

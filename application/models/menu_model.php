@@ -14,7 +14,7 @@ class Menu_model extends CI_Model {
 
 	function tambahMenu()
 	{
-		$nama = $this->input->post('nama_menu');
+		$nama = $this->input->post('nama');
 		$jenis = $this->input->post('jenis');
 		$harga = $this->input->post('harga');
 		$persediaan = $this->input->post('persediaan');
@@ -30,7 +30,7 @@ class Menu_model extends CI_Model {
 	function ubahMenu($id_menu){
 		$data = array(
 			'id_menu' => $this->input->post('id_menu'),
-			'nama' => $this->input->post('nama_menu'),
+			'nama' => $this->input->post('nama'),
 			'jenis' => $this->input->post('jenis'),
 			'harga' => $this->input->post('harga'),
 			'persediaan' => $this->input->post('persediaan')
