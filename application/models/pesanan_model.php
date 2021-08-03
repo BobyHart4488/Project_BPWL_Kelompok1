@@ -10,7 +10,7 @@ class Pesanan_model extends CI_Model {
 
 	function tampilPesanan()
 	{
-		$query = $this->db->query('SELECT * FROM pesanan pe, pembeli p WHERE pe.id_pembeli = p.id_pembeli ORDER BY id_pembeli DESC');
+		$query = $this->db->query('SELECT * FROM pesanan pe, pembeli p WHERE pe.id_pembeli = p.id_pembeli ORDER BY p.id_pembeli DESC');
 		return $query->result();
 	}
 
