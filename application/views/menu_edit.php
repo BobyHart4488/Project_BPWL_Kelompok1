@@ -245,7 +245,7 @@ if ($this->session->userdata('user') != 'admin') {
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="nama_menu">Nama Menu</label>
-                                <input type="text" class="form-control" value="<?php echo $row->nama ?>" id="nama" name="nama" placeholder="Nama Menu">
+                                <input type="text" class="form-control" value="<?php echo $row->nama ?>" id="nama_menu" name="nama_menu" placeholder="Nama Menu">
                             </div>
                             <div class="form-group col-12 col-md-6">
                             <label for="jenis">Jenis</label>
