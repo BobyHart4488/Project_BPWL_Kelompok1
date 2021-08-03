@@ -65,37 +65,19 @@ class Elmio extends CI_Controller {
 
     public function aksi_register()
     {
-        $ID = $this->input->post('id');
-        $nama = $this->input->post('nama');
-        $password = $this->input->post('password');
-        $password_cnfrm = $this->input->post('password_confirmation');
-        if($password == $password_cnfrm) {
-            $data = array(
-                'id_pembeli' => $ID,
-                'nama' => $nama,
-                'password' => $password
-            );
-            $cek = $this->login_model->register("pembeli", $data);
-
-            if($cek) {
-                $data_session = array(
-                    'id' => $ID,
-                    'status' => "login",
-                    'user' => "user"
-                );
-    
-                $this->session->set_userdata($data_session);
-                redirect(base_url("User"));
-            }
+        $password_cek = $this->input->post('password');
+        $password_cnfrm_cek = $this->input->post('password_confirmation');
+        if($password_cek == $password_cnfrm_cek) {
+            $cek = $this->login_model->register();
+            redirect(base_url("User"));
         }
-        
-        
 		else {
             redirect(base_url());
         }
     }
 
-	public function register(){
+	public function register()
+    {
 		$this->load->view('register');
 	}
 

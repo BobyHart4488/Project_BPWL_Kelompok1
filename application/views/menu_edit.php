@@ -182,7 +182,7 @@ if ($this->session->userdata('user') != 'admin') {
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-user"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Users</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Pembeli</span>
                     </a>
                 </li>
                 <!-- End Users -->
@@ -192,7 +192,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <li class="side-nav-menu-item side-nav-has-menu">
                     <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
                         <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
+                            <i class="gd-receipt"></i>
                         </span>
                         <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">
@@ -226,15 +226,15 @@ if ($this->session->userdata('user') != 'admin') {
                     <nav class="d-none d-md-block" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Orders</a>
+                                <a href="#">Menus</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Order</li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Menu</li>
                         </ol>
                     </nav>
                     <!-- End Breadcrumb -->
 
                     <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                        <div class="h3 mb-0">Edit Order</div>
+                        <div class="h3 mb-0">Edit Menu</div>
                     </div>
 
 
@@ -244,11 +244,9 @@ if ($this->session->userdata('user') != 'admin') {
                         <input type="hidden" class="form-control" value="<?php echo $row->id_menu ?>" id="id_menu" name="id_menu">
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
-                                <label for="name">Nama Menu</label>
+                                <label for="nama_menu">Nama Menu</label>
                                 <input type="text" class="form-control" value="<?php echo $row->nama ?>" id="nama" name="nama" placeholder="Nama Menu">
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="form-group col-12 col-md-6">
                             <label for="jenis">Jenis</label>
                             <select name="jenis" id="jenis" class="form-control">
@@ -259,14 +257,12 @@ if ($this->session->userdata('user') != 'admin') {
                         </div>
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
-                                <label for="name">Harga</label>
-                                <input type="text" class="form-control" value="<?php echo $row->harga ?>" id="harga" name="harga" placeholder="Harga">
+                                <label for="harga">Harga</label>
+                                <input type="number" class="form-control" value="<?php echo $row->harga ?>" id="harga" name="harga" placeholder="Harga">
                             </div>
-                        </div>
-                        <div class="form-row">
                             <div class="form-group col-12 col-md-6">
-                                <label for="name">Persediaan</label>
-                                <input type="text" class="form-control" value="<?php echo $row->persediaan ?>" id="persediaan" name="persediaan" placeholder="Persediaan">
+                                <label for="persediaan">Persediaan</label>
+                                <input type="number" class="form-control" value="<?php echo $row->persediaan ?>" id="persediaan" name="persediaan" placeholder="Persediaan">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary float-right">Edit</button>

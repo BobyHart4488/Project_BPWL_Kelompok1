@@ -2,12 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Menu_model extends CI_Model {
-	public function __construct(){
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->database();
 	}
 
-	function tampilMenu(){
+	function tampilMenu()
+	{
 		$query = $this->db->query('SELECT * FROM menu');
 		return $query->result();
 	}
@@ -22,12 +24,14 @@ class Menu_model extends CI_Model {
 		redirect(base_url("Admin/menus"));
 	}
 
-	function rowUbahMenu($id_menu){
+	function rowUbahMenu($id_menu)
+	{
 		$query = $this->db->query("SELECT * FROM menu WHERE id_menu = '$id_menu'");
 		return $query->row();
 	}
 
-	function ubahMenu($id_menu){
+	function ubahMenu($id_menu)
+	{
 		$data = array(
 			'id_menu' => $this->input->post('id_menu'),
 			'nama' => $this->input->post('nama'),
@@ -39,7 +43,8 @@ class Menu_model extends CI_Model {
 		$this->db->update('menu', $data);
 	}
 	
-	function hapusMenu($id_menu){
+	function hapusMenu($id_menu)
+	{
 		$query = $this->db->query("DELETE FROM menu WHERE id_menu = '$id_menu'");
 	}
 }

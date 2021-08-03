@@ -35,16 +35,17 @@ if ($this->session->userdata('user') != 'admin') {
             <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
                 <!-- Logo For Mobile View -->
                 <a class="navbar-brand navbar-brand-mobile" href="">
-                    <img class="img-fluid w-100" src="<?php echo base_url()?>assets/img/logo-mini.png" alt="Graindashboard">
+                    <img class="img-fluid w-100" src="<?php echo base_url()?>assets/img/logo-mini.png"
+                        alt="Graindashboard">
                 </a>
                 <!-- End Logo For Mobile View -->
 
                 <!-- Logo For Desktop View -->
                 <a class="navbar-brand navbar-brand-desktop" href="">
-                    <img class="side-nav-show-on-closed" src="<?php echo base_url()?>assets/img/logo-mini.png" alt="Graindashboard"
-                        style="width: auto; height: 33px;">
-                    <img class="side-nav-hide-on-closed" src="<?php echo base_url()?>assets/img/logo.png" alt="Graindashboard"
-                        style="width: auto; height: 33px;">
+                    <img class="side-nav-show-on-closed" src="<?php echo base_url()?>assets/img/logo-mini.png"
+                        alt="Graindashboard" style="width: auto; height: 33px;">
+                    <img class="side-nav-hide-on-closed" src="<?php echo base_url()?>assets/img/logo.png"
+                        alt="Graindashboard" style="width: auto; height: 33px;">
                 </a>
                 <!-- End Logo For Desktop View -->
             </div>
@@ -138,7 +139,8 @@ if ($this->session->userdata('user') != 'admin') {
                             </li>
                             <li class="unfold-item unfold-item-has-divider">
                             <li class="unfold-item">
-                                <a class="unfold-link d-flex align-items-center text-nowrap" href="<?php echo base_url() ?>Elmio/logout">
+                                <a class="unfold-link d-flex align-items-center text-nowrap"
+                                    href="<?php echo base_url() ?>Elmio/logout">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
                                     </span>
@@ -205,7 +207,7 @@ if ($this->session->userdata('user') != 'admin') {
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-user"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Users</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Pembeli</span>
                     </a>
                 </li>
                 <!-- End Users -->
@@ -215,7 +217,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <li class="side-nav-menu-item side-nav-has-menu">
                     <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
                         <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
+                            <i class="gd-receipt"></i>
                         </span>
                         <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">
@@ -241,53 +243,105 @@ if ($this->session->userdata('user') != 'admin') {
         <!-- End Sidebar Nav -->
 
         <div class="content">
-            <div class="py-4 px-3 px-md-4">                
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card mb-3 mb-md-4">
-                            <div class="card-header">
-                                <h5 class="font-weight-semi-bold mb-0">Recent Orders</h5>
-                            </div>
+            <div class="h3 mb-0 ml-4">Survey Data</div>
+            <div class="row mt-5 py-2 px-3 px-md-4">
+                <div class="col-md-6 col-xl-4 mb-3 mb-xl-4">
+                    <!-- Widget -->
+                    <div class="card flex-row align-items-center p-3 p-md-4">
+                        <div class="icon icon-lg bg-soft-primary rounded-circle mr-3">
+                            <i class="gd-bar-chart icon-text d-inline-block text-primary"></i>
+                        </div>
+                        <div>
+                            <?php $query1 = $this->pesanan_model->tampilPesanan();
+                                $jumlah1 = 0;
+                                foreach ($query1 as $row1) {
+                                    $jumlah1 += 1; }?>
+                            <h4 class="lh-1 mb-1 ml-2"><?= $jumlah1; ?></h4>
+                            <h6 class="mb-0 ml-2">Total Pesanan</h6>
+                        </div>
+                    </div>
+                    <!-- End Widget -->
+                </div>
 
-                            <div class="card-body pt-0">
+                <div class="col-md-6 col-xl-4 mb-3 mb-xl-4">
+                    <!-- Widget -->
+                    <div class="card flex-row align-items-center p-3 p-md-4">
+                        <div class="icon icon-lg bg-soft-secondary rounded-circle mr-3">
+                            <i class="gd-wallet icon-text d-inline-block text-secondary"></i>
+                        </div>
+                        <div>
+                            <?php $query2 = $this->pesanan_model->tampilPesanan();
+                                $jumlah2 = 0;
+                                foreach ($query2 as $row2) {
+                                    $jumlah2 += $row2->total; }?>
+                            <h4 class="lh-1 mb-1 ml-2"><?= 'Rp '.$jumlah2; ?></h4>
+                            <h6 class="mb-0 ml-2">Total Pendapatan</h6>
+                        </div>
+                    </div>
+                    <!-- End Widget -->
+                </div>
+
+                <div class="col-md-6 col-xl-4 mb-3 mb-xl-4">
+                    <!-- Widget -->
+                    <div class="card flex-row align-items-center p-3 p-md-4">
+                        <div class="icon icon-lg bg-soft-warning rounded-circle mr-3">
+                            <i class="gd-receipt icon-text d-inline-block text-warning"></i>
+                        </div>
+                        <div>
+                            <?php $query3 = $this->menu_model->tampilMenu();
+                                $jumlah3 = 0;
+                                foreach ($query3 as $row3) {
+                                    $jumlah3 += 1; }?>
+                            <h4 class="lh-1 mb-1 ml-2"><?= $jumlah3; ?></h4>
+                            <h6 class="mb-0 ml-2">Total Menu</h6>
+                        </div>
+                    </div>
+                    <!-- End Widget -->
+                </div>
+
+            </div>
+            <div class="px-3 px-md-4">
+                <div class="mb-3 mb-md-4 d-flex justify-content-between">
+                    <div class="h3 mb-0">Recent Orders</div>
+                </div>
+                <?php $queryOrder = $this->pesanan_model->tampilPesanan();
+                                $deck = 1;
+                                foreach ($queryOrder as $rowPesanan) {
+                                    if($deck % 2 == 1) { ?>
+                <div class="row"> <?php } ?>
+                    <div class="col-md-6">
+                        <!-- Card -->
+                        <div class="card mb-3 mb-md-4">
+                            <div class="card-header d-xl-flex">
+                                <h5 class="font-weight-semi-bold mb-0"><?php echo $rowPesanan->id_pesanan; ?></h5>
+                                <div class="nav-mobile-container ml-auto">
+                                    <?php echo $rowPesanan->nama; ?>
+                                </div>
+                            </div>
+                            <div class="card-body">
                                 <div class="table-responsive-xl">
                                     <table class="table text-nowrap mb-0">
                                         <thead>
                                             <tr>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pesanan</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">ID Pembeli</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Total</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Nama Menu</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Jumlah</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Harga</th>
                                                 <th class="font-weight-semi-bold border-top-0 py-2">Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $queryOrder = $this->pesanan_model->tampilPesanan();
-                                                foreach ($queryOrder as $rowPesanan) {
-                                            ?>
+                                            <?php $queryDetail = $this->pesanan_model->tampilDetailPesananPembeli($rowPesanan->id_pesanan);
+                                                        foreach ($queryDetail as $rowDetail) { ?>
                                             <tr>
-                                                <td class="py-3"><?php echo $rowPesanan->id_pesanan; ?></td>
-                                                <td class="py-3"><?php echo $rowPesanan->id_pembeli; ?></td>
-                                                <td class="py-3">Rp <?php echo $rowPesanan->total; ?></td>
+                                                <td class="py-3"><?php echo $rowDetail->nama; ?></td>
+                                                <td class="py-3"><?php echo $rowDetail->jumlah; ?></td>
+                                                <td class="py-3">Rp
+                                                    <?php echo $rowDetail->jumlah * $rowDetail->harga; ?></td>
                                                 <td class="py-3">
                                                     <div class="position-relative">
-                                                        <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
-                                                            <i class="gd-more-alt icon-text"></i>
+                                                        <a class="link-dark d-inline-block" href="#">
+                                                            <i class="gd-pencil icon-text"></i>
                                                         </a>
-
-                                                        <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-pencil unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Edit</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-close unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Delete</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -297,9 +351,11 @@ if ($this->session->userdata('user') != 'admin') {
                                 </div>
                             </div>
                         </div>
+                        <!-- End Card -->
                     </div>
-                </div>
-
+                    <?php $deck += 1;
+                    if ($deck % 2 == 1) { ?>
+                </div> <?php } } ?>
             </div>
 
             <!-- Footer -->

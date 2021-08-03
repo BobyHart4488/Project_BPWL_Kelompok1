@@ -3,19 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Agu 2021 pada 18.52
+-- Waktu pembuatan: 03 Agu 2021 pada 14.50
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `project_bpwl_kelompok1`
@@ -39,32 +33,41 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id_admin`, `password`) VALUES
 ('Adm_Boby', 'boby'),
 ('Adm_Farah', 'farah'),
-('Adm_Rezky', 'rezky'),
-('Adm_Udin', 'udin');
+('Adm_Rezky', 'rezky');
 
 -- --------------------------------------------------------
 
---
--- Struktur dari tabel `detail_id`
---
+CREATE SEQUENCE detail_id
+INCREMENT BY 1
+MINVALUE 6
+MAXVALUE 999
+START WITH 6
+NOCACHE
+NOCYCLE;
 
-CREATE TABLE `detail_id` (
-  `next_not_cached_value` bigint(21) NOT NULL,
-  `minimum_value` bigint(21) NOT NULL,
-  `maximum_value` bigint(21) NOT NULL,
-  `start_value` bigint(21) NOT NULL COMMENT 'start value when sequences is created or value if RESTART is used',
-  `increment` bigint(21) NOT NULL COMMENT 'increment value',
-  `cache_size` bigint(21) UNSIGNED NOT NULL,
-  `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
-  `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
+CREATE SEQUENCE menu_id
+INCREMENT BY 1
+MINVALUE 12
+MAXVALUE 999
+START WITH 12
+NOCACHE
+NOCYCLE;
 
---
--- Dumping data untuk tabel `detail_id`
---
+CREATE SEQUENCE pembeli_id
+INCREMENT BY 1
+MINVALUE 11
+MAXVALUE 999
+START WITH 11
+NOCACHE
+NOCYCLE;
 
-INSERT INTO `detail_id` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
-(5, 1, 1000, 5, 1, 1000, 0, 0);
+CREATE SEQUENCE pesanan_id
+INCREMENT BY 1
+MINVALUE 4
+MAXVALUE 999
+START WITH 4
+NOCACHE
+NOCYCLE;
 
 -- --------------------------------------------------------
 
@@ -87,7 +90,8 @@ INSERT INTO `detail_pesanan` (`id_detail`, `id_pesanan`, `id_menu`, `jumlah`) VA
 ('D_001', 'PE_001', 'M_001', 1),
 ('D_002', 'PE_001', 'M_005', 1),
 ('D_003', 'PE_002', 'M_002', 1),
-('D_004', 'PE_002', 'M_004', 1);
+('D_004', 'PE_002', 'M_004', 1),
+('D_005', 'PE_003', 'M_005', 1);
 
 -- --------------------------------------------------------
 
@@ -122,30 +126,6 @@ INSERT INTO `menu` (`id_menu`, `nama`, `jenis`, `harga`, `persediaan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `menu_id`
---
-
-CREATE TABLE `menu_id` (
-  `next_not_cached_value` bigint(21) NOT NULL,
-  `minimum_value` bigint(21) NOT NULL,
-  `maximum_value` bigint(21) NOT NULL,
-  `start_value` bigint(21) NOT NULL COMMENT 'start value when sequences is created or value if RESTART is used',
-  `increment` bigint(21) NOT NULL COMMENT 'increment value',
-  `cache_size` bigint(21) UNSIGNED NOT NULL,
-  `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
-  `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
-
---
--- Dumping data untuk tabel `menu_id`
---
-
-INSERT INTO `menu_id` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
-(1001, 7, 1000, 7, 1, 1000, 0, 0);
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `pembeli`
 --
 
@@ -166,31 +146,9 @@ INSERT INTO `pembeli` (`id_pembeli`, `nama`, `password`, `no_telepon`, `alamat`)
 ('P_002', 'Udin Fajri', 'udin', '081234567892', 'Jl. Dumai'),
 ('P_003', 'Nesya Anfasha Rosa', 'nesya', '081234567893', 'Jl. Sekolah'),
 ('P_004', 'Nasha Hikmatia', 'nasha', '081234567894', 'Jl. Bunga Raya'),
-('P_005', 'Feren', 'feren', '081234567890', 'Jl. Merpati');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `pembeli_id`
---
-
-CREATE TABLE `pembeli_id` (
-  `next_not_cached_value` bigint(21) NOT NULL,
-  `minimum_value` bigint(21) NOT NULL,
-  `maximum_value` bigint(21) NOT NULL,
-  `start_value` bigint(21) NOT NULL COMMENT 'start value when sequences is created or value if RESTART is used',
-  `increment` bigint(21) NOT NULL COMMENT 'increment value',
-  `cache_size` bigint(21) UNSIGNED NOT NULL,
-  `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
-  `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
-
---
--- Dumping data untuk tabel `pembeli_id`
---
-
-INSERT INTO `pembeli_id` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
-(6, 1, 1000, 6, 1, 1000, 0, 0);
+('P_005', 'Feren', 'feren', '081234567890', 'Jl. Merpati'),
+('P_006', 'Biston', 'biston', '0816548255', 'Jl. Kuasa'),
+('P_010', 'Petro', 'petro', '873551864', 'Jl. Baru');
 
 -- --------------------------------------------------------
 
@@ -210,32 +168,10 @@ CREATE TABLE `pesanan` (
 
 INSERT INTO `pesanan` (`id_pesanan`, `id_pembeli`, `total`) VALUES
 ('PE_001', 'P_001', 135000),
-('PE_002', 'P_002', 25000);
+('PE_002', 'P_002', 25000),
+('PE_003', 'P_003', 15000);
 
 -- --------------------------------------------------------
-
---
--- Struktur dari tabel `pesanan_id`
---
-
-CREATE TABLE `pesanan_id` (
-  `next_not_cached_value` bigint(21) NOT NULL,
-  `minimum_value` bigint(21) NOT NULL,
-  `maximum_value` bigint(21) NOT NULL,
-  `start_value` bigint(21) NOT NULL COMMENT 'start value when sequences is created or value if RESTART is used',
-  `increment` bigint(21) NOT NULL COMMENT 'increment value',
-  `cache_size` bigint(21) UNSIGNED NOT NULL,
-  `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
-  `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
-) ENGINE=InnoDB;
-
---
--- Dumping data untuk tabel `pesanan_id`
---
-
-INSERT INTO `pesanan_id` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
-(3, 1, 1000, 3, 1, 1000, 0, 0);
-
 --
 -- Indexes for dumped tables
 --

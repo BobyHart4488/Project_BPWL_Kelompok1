@@ -182,7 +182,7 @@ if ($this->session->userdata('user') != 'admin') {
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-user"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Users</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Pembeli</span>
                     </a>
                 </li>
                 <!-- End Users -->
@@ -192,7 +192,7 @@ if ($this->session->userdata('user') != 'admin') {
                     <a class="side-nav-menu-link media align-items-center" href="#"
                     data-target="#subOrders">
                     <span class="side-nav-menu-icon d-flex mr-3">
-                        <i class="gd-user"></i>
+                        <i class="gd-receipt"></i>
                     </span>
                         <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">
@@ -244,7 +244,7 @@ if ($this->session->userdata('user') != 'admin') {
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="nama_menu">Nama Menu</label>
-                                    <input type="text" class="form-control" value="" id="nama_menu" name="nama_menu">
+                                    <input type="text" class="form-control" value="" id="nama_menu" name="nama_menu" placeholder="Nama Menu">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="jenis">Jenis</label>
@@ -258,11 +258,11 @@ if ($this->session->userdata('user') != 'admin') {
                             <div class="form-row">
                                 <div class="form-group col-12 col-md-6">
                                     <label for="harga">Harga</label>
-                                    <input type="number" class="form-control" value="" min="0" id="harga" name="harga">
+                                    <input type="number" class="form-control" value="" min="0" id="harga" name="harga" placeholder="Harga">
                                 </div>
                                 <div class="form-group col-12 col-md-6">
                                     <label for="persediaan">Persediaan</label>
-                                    <input type="number" class="form-control" value="" min="0" id="persediaan" name="persediaan">
+                                    <input type="number" class="form-control" value="" min="0" id="persediaan" name="persediaan" placeholder="Persediaan">
                                 </div>
                             </div>
 

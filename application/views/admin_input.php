@@ -183,7 +183,7 @@ if ($this->session->userdata('user') != 'admin') {
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-user"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Users</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Pembeli</span>
                     </a>
                 </li>
                 <!-- End Users -->
@@ -192,7 +192,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <li class="side-nav-menu-item side-nav-has-menu">
                     <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
                         <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
+                            <i class="gd-receipt"></i>
                         </span>
                         <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">

@@ -182,7 +182,7 @@ if ($this->session->userdata('user') != 'admin') {
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-user"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Users</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Pembeli</span>
                     </a>
                 </li>
                 <!-- End Users -->
@@ -192,7 +192,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <li class="side-nav-menu-item side-nav-has-menu">
                     <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
                         <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
+                            <i class="gd-receipt"></i>
                         </span>
                         <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">
@@ -243,14 +243,14 @@ if ($this->session->userdata('user') != 'admin') {
                         <form method="POST" action="<?= site_url('Admin/c_ubahAdmin')?>/<?= $row->id_admin ?>">
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
-                                <label for="name">ID Admin</label>
+                                <label for="id_admin">ID Admin</label>
                                 <input type="text" class="form-control" value="<?php echo $row->id_admin ?>" id="id_admin" name="id_admin" placeholder="ID Admin">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
-                                <label for="name">Password</label>
-                                <input type="text" class="form-control" value="<?php echo $row->password ?>" id="password" name="password" placeholder="Password">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" value="<?php echo $row->password ?>" id="password" name="password" placeholder="Password">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary float-right">Edit</button>

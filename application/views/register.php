@@ -43,8 +43,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 
 									<div class="form-group">
-										<label for="email">Buat ID</label>
-										<input id="text" type="text" class="form-control" name="id" required="" placeholder="Buat tanda P- dilanjutkan dengan angka">
+										<label for="no_telepon">Phone Number</label>
+										<input id="text" type="text" class="form-control" name="no_telepon" required="">
+									</div>
+
+									<div class="form-group">
+										<label for="alamat">Address</label>
+										<input id="text" type="text" class="form-control" name="alamat" required="">
 									</div>
 
 									<div class="form-row mb-4">
@@ -54,29 +59,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<input id="password" type="password" class="form-control" name="password" required="">
 										</div>
 										<div class="form-group col-md-6">
-											<label for="password-confirm">Confirm Password
+											<label for="password_confirmation">Confirm Password
 											</label>
-											<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required="">
+											<input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required="">
 										</div>
 									</div>
-
 
 									<div class="form-group no-margin">
 										<input type="submit" class="btn btn-primary btn-block  rounded-pill" name="register" value= "Register">
 									</div>
 									<div class="dropdown-divider"></div>
-									<!--
-									<div class="form-group no-margin">
-										<a href="" class="btn btn-google btn-block rounded-pill">
-											<i class="gd-google align-middle mr-2"></i>  Google
-										</a>
-										<a href="" class="btn btn-facebook btn-block rounded-pill">
-											<i class="gd-facebook align-middle mr-2"></i>  Facebook
-										</a>
-									</div>
-									-->
 									<div class="text-center mt-3 small">
-										Already have an account? <a href="../views">Login</a>
+										Already have an account? <a href="<?php echo base_url() ?>Elmio">Login</a>
 									</div>
 								</form>
 							</div>

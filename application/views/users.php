@@ -182,7 +182,7 @@ if ($this->session->userdata('user') != 'admin') {
                         <span class="side-nav-menu-icon d-flex mr-3">
                             <i class="gd-user"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Users</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Pembeli</span>
                     </a>
                 </li>
                 <!-- End Users -->
@@ -192,7 +192,7 @@ if ($this->session->userdata('user') != 'admin') {
                 <li class="side-nav-menu-item side-nav-has-menu">
                     <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
                         <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
+                            <i class="gd-receipt"></i>
                         </span>
                         <span class="side-nav-fadeout-on-closed media-body">Menus</span>
                         <span class="side-nav-control-icon d-flex">
@@ -245,8 +245,6 @@ if ($this->session->userdata('user') != 'admin') {
                             <tr>
                                 <th class="font-weight-semi-bold border-top-0 py-2">ID Pembeli</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Nama Pembeli</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Password</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Opsi</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -256,29 +254,6 @@ if ($this->session->userdata('user') != 'admin') {
                                             <tr>
                                                 <td class="py-3"><?php echo $rowUser->id_pembeli; ?></td>
                                                 <td class="py-3"><?php echo $rowUser->nama; ?></td>
-                                                <td class="py-3"><?php echo $rowUser->password; ?></td>
-                                                <td class="py-3">
-                                                    <div class="position-relative">
-                                                        <a id="dropDown16Invoker" class="link-dark d-flex" href="#" aria-controls="dropDown16" aria-haspopup="true" aria-expanded="false" data-unfold-target="#dropDown16" data-unfold-event="click" data-unfold-type="css-animation" data-unfold-duration="300" data-unfold-animation-in="fadeIn" data-unfold-animation-out="fadeOut">
-                                                            <i class="gd-more-alt icon-text"></i>
-                                                        </a>
-
-                                                        <ul id="dropDown16" class="unfold unfold-light unfold-top unfold-right position-absolute py-3 mt-1 unfold-css-animation unfold-hidden fadeOut" aria-labelledby="dropDown16Invoker" style="min-width: 150px; animation-duration: 300ms; right: 0px;">
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-pencil unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Edit</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="unfold-item">
-                                                                <a class="unfold-link media align-items-center text-nowrap" href="#">
-                                                                    <i class="gd-close unfold-item-icon mr-3"></i>
-                                                                    <span class="media-body">Delete</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
                                             </tr>
                                             <?php } ?>
                             </tbody>

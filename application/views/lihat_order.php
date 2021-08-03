@@ -6,6 +6,7 @@ if ($this->session->userdata('user') != 'user') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Title -->
     <title>See Your Order | El' Mio</title>
@@ -22,34 +23,35 @@ if ($this->session->userdata('user') != 'user') {
 </head>
 
 <body class="has-sidebar has-fixed-sidebar-and-header">
-<!-- Header -->
-<header class="header bg-body">
-    <nav class="navbar flex-nowrap p-0">
-        <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
-            <!-- Logo For Mobile View -->
-            <a class="navbar-brand navbar-brand-mobile" href="">
-                <img class="img-fluid w-100" src="<?php echo base_url() ?>assets/img/logo-mini.png" alt="Graindashboard">
-            </a>
-            <!-- End Logo For Mobile View -->
-
-            <!-- Logo For Desktop View -->
-            <a class="navbar-brand navbar-brand-desktop" href="">
-                <img class="side-nav-show-on-closed" src="<?php echo base_url() ?>assets/img/logo-mini.png" alt="Graindashboard" style="width: auto; height: 33px;">
-                <img class="side-nav-hide-on-closed" src="<?php echo base_url() ?>assets/img/logo.png" alt="Graindashboard" style="width: auto; height: 33px;">
-            </a>
-            <!-- End Logo For Desktop View -->
-        </div>
-
-        <div class="header-content col px-md-3">
-            <div class="d-flex align-items-center">
-                <!-- Side Nav Toggle -->
-                <a  class="js-side-nav header-invoker d-flex mr-md-2" href="#"
-                    data-close-invoker="#sidebarClose"
-                    data-target="#sidebar"
-                    data-target-wrapper="body">
-                    <i class="gd-align-left"></i>
+    <!-- Header -->
+    <header class="header bg-body">
+        <nav class="navbar flex-nowrap p-0">
+            <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
+                <!-- Logo For Mobile View -->
+                <a class="navbar-brand navbar-brand-mobile" href="">
+                    <img class="img-fluid w-100" src="<?php echo base_url() ?>assets/img/logo-mini.png"
+                        alt="Graindashboard">
                 </a>
-                <!-- End Side Nav Toggle -->
+                <!-- End Logo For Mobile View -->
+
+                <!-- Logo For Desktop View -->
+                <a class="navbar-brand navbar-brand-desktop" href="">
+                    <img class="side-nav-show-on-closed" src="<?php echo base_url() ?>assets/img/logo-mini.png"
+                        alt="Graindashboard" style="width: auto; height: 33px;">
+                    <img class="side-nav-hide-on-closed" src="<?php echo base_url() ?>assets/img/logo.png"
+                        alt="Graindashboard" style="width: auto; height: 33px;">
+                </a>
+                <!-- End Logo For Desktop View -->
+            </div>
+
+            <div class="header-content col px-md-3">
+                <div class="d-flex align-items-center">
+                    <!-- Side Nav Toggle -->
+                    <a class="js-side-nav header-invoker d-flex mr-md-2" href="#" data-close-invoker="#sidebarClose"
+                        data-target="#sidebar" data-target-wrapper="body">
+                        <i class="gd-align-left"></i>
+                    </a>
+                    <!-- End Side Nav Toggle -->
 
                     <!-- User Notifications -->
                     <div class="dropdown ml-auto">
@@ -131,7 +133,8 @@ if ($this->session->userdata('user') != 'user') {
                             </li>
                             <li class="unfold-item unfold-item-has-divider">
                             <li class="unfold-item">
-                                <a class="unfold-link d-flex align-items-center text-nowrap" href="<?php echo base_url() ?>Elmio/logout">
+                                <a class="unfold-link d-flex align-items-center text-nowrap"
+                                    href="<?php echo base_url() ?>Elmio/logout">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
                                     </span>
@@ -141,184 +144,150 @@ if ($this->session->userdata('user') != 'user') {
                         </ul>
                     </div>
                     <!-- End User Avatar -->
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
-<!-- End Header -->
+        </nav>
+    </header>
+    <!-- End Header -->
 
-<main class="main">
-    <!-- Sidebar Nav -->
-    <aside id="sidebar" class="js-custom-scroll side-nav">
-        <ul id="sideNav" class="side-nav-menu side-nav-menu-top-level mb-0">
-            <!-- Title -->
-            <li class="sidebar-heading h6">Navigasi Pembeli</li>
-            <!-- End Title -->
+    <main class="main">
+        <!-- Sidebar Nav -->
+        <aside id="sidebar" class="js-custom-scroll side-nav">
+            <ul id="sideNav" class="side-nav-menu side-nav-menu-top-level mb-0">
+                <!-- Title -->
+                <li class="sidebar-heading h6">Navigasi Pembeli</li>
+                <!-- End Title -->
 
-            <!-- Getting Started -->
-            <li class="side-nav-menu-item active">
-                <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>User">
-              <span class="side-nav-menu-icon d-flex mr-3">
-                <i class="gd-home"></i>
-              </span>
-                    <span class="side-nav-fadeout-on-closed media-body">Home Restaurant</span>
-                </a>
-            </li>
-            <!-- End Getting Started -->
-            
-            <!-- My Order -->
-            <li class="side-nav-menu-item side-nav-has-menu active side-nav-opened">
-                    <a class="side-nav-menu-link media align-items-center" href="#"
-                    data-target="#subOrders">
-                    <span class="side-nav-menu-icon d-flex mr-3">
-                        <i class="gd-shopping-cart"></i>
-                    </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Menus</span>
+                <!-- Getting Started -->
+                <li class="side-nav-menu-item">
+                    <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>User">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-home"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed media-body">Home Restaurant</span>
+                    </a>
+                </li>
+                <!-- End Getting Started -->
+
+                <!-- My Order -->
+                <li class="side-nav-menu-item side-nav-has-menu active side-nav-opened">
+                    <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
+                        <span class="side-nav-menu-icon d-flex mr-3">
+                            <i class="gd-shopping-cart"></i>
+                        </span>
+                        <span class="side-nav-fadeout-on-closed media-body">My Order</span>
                         <span class="side-nav-control-icon d-flex">
-                    <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-                </span>
+                            <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
+                        </span>
                         <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
                     </a>
 
                     <!-- Users: subUsers -->
                     <ul id="subOrders" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
                         <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/order_input">Add some Order</a>
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/order_input">Add some
+                                Order</a>
                         </li>
                         <li class="side-nav-menu-item active">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/lihat_order">See my Order</a>
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/lihat_order">See my
+                                Order</a>
                         </li>
                     </ul>
                     <!-- End Users: subUsers -->
                 </li>
-            <!-- End My Order -->
-        </ul>
-    </aside>
-    <!-- End Sidebar Nav -->
+                <!-- End My Order -->
+            </ul>
+        </aside>
+        <!-- End Sidebar Nav -->
 
-    <div class="content">
-        <div class="py-4 px-3 px-md-4">
-            <div class="mb-md-4 d-flex justify-content-between">
-                <div class="h3 mb-0">Recent Orders</div>
-            </div>
-                <div class="card mb-3">
-                    <div class="card-body pt-0">
-                        <div class="table-responsive-xl">
-                            <table class="table text-nowrap mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">#</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">Customer</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">Phone</th>
-                                        <th class="font-weight-semi-bold border-top-0 py-4">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="py-3">149531</td>
-                                        <td class="py-3">
-                                            <div>John Doe</div>
-                                            <div class="text-muted">Acme Inc.</div>
-                                        </td>
-                                        <td class="py-3">(000) 111-1234</td>
-                                        <td class="py-3">$1,230.00</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <div class="content">
+            <div class="py-4 px-3 px-md-4">
+                <div class="mb-md-4 d-flex justify-content-between">
+                    <div class="h3 mb-0">Recent Orders</div>
+                </div>
+                <?php $queryOrder = $this->pesanan_model->tampilPesananPembeli($this->session->userdata('id'));
+                                $deck = 1;
+                                foreach ($queryOrder as $rowPesanan) {
+                                    if($deck % 2 == 1) { ?>
+                <div class="row"> <?php } ?>
+                    <div class="col-md-6">
+                        <!-- Card -->
+                        <div class="card mb-3 mb-md-4">
+                            <div class="card-header d-xl-flex">
+                                <h5 class="font-weight-semi-bold mb-0"><?php echo $rowPesanan->id_pesanan; ?></h5>
+                                <div class="nav-mobile-container ml-auto">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive-xl">
+                                    <table class="table text-nowrap mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Nama Menu</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Jumlah</th>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Harga</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $queryDetail = $this->pesanan_model->tampilDetailPesananPembeli($rowPesanan->id_pesanan);
+                                                        foreach ($queryDetail as $rowDetail) { ?>
+                                            <tr>
+                                                <td class="py-3"><?php echo $rowDetail->nama; ?></td>
+                                                <td class="py-3"><?php echo $rowDetail->jumlah; ?></td>
+                                                <td class="py-3">Rp
+                                                    <?php echo $rowDetail->jumlah * $rowDetail->harga; ?></td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
+                        <!-- End Card -->
                     </div>
-                </div>
-        </div>
-
-        <div class="py-4 px-3 px-md-4">
-
-            <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                <div class="h3 mb-0">Getting Started</div>
+                    <?php $deck += 1;
+                    if ($deck % 2 == 1) { ?>
+                </div> <?php } } ?>
             </div>
 
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h4 class="card-title">Introduction</h4>
-                    <p><strong>Graindashboard</strong> &mdash; is a responsive Web-Application UI Kit (HTML Admin Template), designed to be easily implemented to any web-application. It's build on Bootstrap 4 and uses <a href="https://github.com/JeffreyWay/laravel-mix" target="_blank">Laravel Mix</a> (a webpack wrapper) as a build tool.</p>
-                    <p>Graindashboard comes with <strong>Laravel Starter Kit</strong> and could be implemented into new and existing Laravel application in no time.</p>
-                    <p><strong>Laravel Starter Kit</strong> includes the following:</p>
-                    <ul>
-                        <li>Ready-to-use <strong>webpack.mix.js</strong> and <strong>package.json</strong>;</li>
-                        <li>Sample <strong>routes file</strong>;</li>
-                        <li>All necessary <strong>Blade Views</strong>, including: <strong>auth pages, users list, user create/edit form, edit profile,</strong> etc;</li>
-                        <li>Sample <strong>Controllers</strong> to manage users (CRUD) and update profile settings;</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h4 class="card-title">Installation</h4>
-                    <p>Graindashboard is ready to use out-of-the-box, just copy compiled assets from <strong>/public/</strong> directory to your project. If you want to customize the theme, you may use built-in NPM commands to re-compile theme assets.</p>
-                    <p><strong>Available NPM commands:</strong></p>
-<pre>
-npm run watch
-npm run dev
-npm run production
-</pre>
-                    <p>To customize the build process, you'll need to edit the <strong>webpack.mix.js</strong> file. For more information, please visit the Laravel Mix <a href="https://laravel-mix.com/docs/4.0/basic-example/tree/master/docs#readme" target="_blank">official documentation</a>.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Use Graindashboard in Laravel application</h4>
-                    <p>Graindashboard comes with <strong>Laravel Starter Kit</strong> and could be implemented into new and existing Laravel application in no time.</p>
-
-                    <div class="alert alert-warning" role="alert">
-                        <strong class="d-block mb-1">Attention! Be careful!</strong>
-                        <p>If you're installing Graindashboard into <strong>existing Laravel application</strong>, make sure you won't overwrite your existing views, controllers, routes and other important files.</p>
+            <!-- Footer -->
+            <footer class="small p-3 px-md-4 mt-auto">
+                <div class="row justify-content-between">
+                    <div class="col-lg text-center text-lg-left mb-3 mb-lg-0">
+                        <ul class="list-dot list-inline mb-0">
+                            <li class="list-dot-item list-dot-item-not list-inline-item mr-lg-2"><a class="link-dark"
+                                    href="#">FAQ</a></li>
+                            <li class="list-dot-item list-inline-item mr-lg-2"><a class="link-dark" href="#">Support</a>
+                            </li>
+                            <li class="list-dot-item list-inline-item mr-lg-2"><a class="link-dark" href="#">Contact
+                                    us</a></li>
+                        </ul>
                     </div>
 
-                    <p><strong>Please, note:</strong> All controllers and routes are provided just for an example, feel free to replace these files with your own.</p>
+                    <div class="col-lg text-center mb-3 mb-lg-0">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item mx-2"><a class="link-muted" href="#"><i
+                                        class="gd-twitter-alt"></i></a></li>
+                            <li class="list-inline-item mx-2"><a class="link-muted" href="#"><i
+                                        class="gd-facebook"></i></a></li>
+                            <li class="list-inline-item mx-2"><a class="link-muted" href="#"><i
+                                        class="gd-github"></i></a></li>
+                        </ul>
+                    </div>
 
-                    <p>To add Graindashboard into Laravel application, do the following:</p>
-                    <ol>
-                        <li class="mb-1">Scaffold default Laravel authentication by using the following command: <code>php artisan make:auth</code> and run migrations by <code>php artisan migrate</code></li>
-                        <li class="mb-1">Update <strong>webpack.mix.js</strong> and <strong>package.json</strong>, see examples in <strong>/laravel/</strong> folder</li>
-                        <li class="mb-1">Copy theme assets <strong>/laravel/resources/graindashboard/</strong> to <strong>/YOUR_APP/resources/graindashboard/</strong></li>
-                        <li class="mb-1">Copy views files <strong>/laravel/resources/views/</strong> to <strong>/YOUR_APP/resources/views/</strong></li>
-                        <li class="mb-1">Copy images from <strong>/laravel/public/img/</strong> to <strong>/YOUR_APP/public/img/</strong>.</li>
-                        <li class="mb-1">Copy controllers from <strong>/laravel/controllers/</strong> to <strong>/YOUR_APP/app/Http/Controllers/</strong></li>
-                        <li class="mb-1">Update routes file, see <strong>/larave/routes/web.php</strong> as example</li>
-                        <li class="mb-1">Build assets by running <code>npm install</code> and <code>npm run production</code></li>
-                    </ol>
+                    <div class="col-lg text-center text-lg-right">
+                        &copy; 2019 Graindashboard. All Rights Reserved.
+                    </div>
                 </div>
-            </div>
-
-
-
+            </footer>
+            <!-- End Footer -->
         </div>
-
-        <!-- Footer -->
-        <footer class="small p-3 px-md-4 mt-auto">
-            <div class="row justify-content-between">
-                <div class="col-lg text-center text-lg-left mb-3 mb-lg-0">
-                    <ul class="list-dot list-inline mb-0">
-                        <li class="list-dot-item list-dot-item-not list-inline-item mr-lg-2"><a class="link-dark" href="https://graindashboard.com/documentation/" target="_blank">Online Documentation</a></li>
-                        <li class="list-dot-item list-inline-item mr-lg-2"><a class="link-dark" href="mailto:support@graindashboard.com">Support</a></li>
-                        <li class="list-dot-item list-inline-item mr-lg-2"><a class="link-dark" href="changelog.php">Changelog</a></li>
-                    </ul>
-                </div>
+    </main>
 
 
-                <div class="col-lg text-center text-lg-right">
-                    &copy; 2019 <a href="https://graindashboard.com" target="_blank">Graindashboard</a>. All Rights Reserved.
-                </div>
-            </div>
-        </footer>
-        <!-- End Footer -->
-    </div>
-</main>
-
-
-<script src="<?php echo base_url() ?>assets/js/graindashboard.js"></script>
-<script src="<?php echo base_url() ?>assets/js/graindashboard.vendor.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/graindashboard.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/graindashboard.vendor.js"></script>
 
 </body>
+
 </html>
