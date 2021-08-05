@@ -1,3 +1,4 @@
+
 --
 -- Database: `project_bpwl_kelompok1`
 --
@@ -93,10 +94,10 @@ INSERT INTO `menu` (`id_menu`, `nama`, `jenis`, `harga`, `persediaan`) VALUES
 ('M_004', 'Jus Alpukat', 'Minuman', 10000, 10),
 ('M_005', 'Cappucino', 'Minuman', 15000, 10),
 ('M_006', 'El Milo', 'Minuman', 10000, 10),
-('M_007', 'Teh Pucuk', 'Minuman', 5000, 10),
-('M_008', 'Teh Tarik', 'Minuman', 7000, 10),
-('M_009', 'Kebab', 'Makanan', 15000, 10),
-('M_010', 'Hamburger', 'Makanan', 20000, 10);
+('M_008', 'Teh Pucuk', 'Minuman', 5000, 10),
+('M_009', 'Teh Tarik', 'Minuman', 7000, 10),
+('M_010', 'Kebab', 'Makanan', 15000, 10),
+('M_011', 'Hamburger', 'Makanan', 20000, 10);
 
 -- --------------------------------------------------------
 
@@ -123,7 +124,7 @@ INSERT INTO `pembeli` (`id_pembeli`, `nama`, `password`, `no_telepon`, `alamat`)
 ('P_004', 'Nasha Hikmatia', 'nasha', '081234567894', 'Jl. Bunga Raya'),
 ('P_005', 'Feren', 'feren', '081234567890', 'Jl. Merpati'),
 ('P_006', 'Biston', 'biston', '0816548255', 'Jl. Kuasa'),
-('P_007', 'Petro', 'petro', '873551864', 'Jl. Baru');
+('P_010', 'Petro', 'petro', '873551864', 'Jl. Baru');
 
 -- --------------------------------------------------------
 
@@ -162,25 +163,28 @@ CREATE SEQUENCE menu_id
 INCREMENT BY 1
 MINVALUE 12
 MAXVALUE 999
-START WITH 11
+START WITH 12
 NOCACHE
 NOCYCLE;
 
 CREATE SEQUENCE pembeli_id
 INCREMENT BY 1
-MINVALUE 8
+MINVALUE 11
 MAXVALUE 999
-START WITH 8
+START WITH 11
 NOCACHE
 NOCYCLE;
 
 CREATE SEQUENCE pesanan_id
 INCREMENT BY 1
-MINVALUE 6
+MINVALUE 9
 MAXVALUE 999
-START WITH 6
+START WITH 9
 NOCACHE
 NOCYCLE;
+--
+-- Indexes for dumped tables
+--
 
 --
 -- Indeks untuk tabel `admin`
@@ -223,6 +227,10 @@ ALTER TABLE `pesanan`
   ADD KEY `fk_pesanan_pembeli` (`id_pembeli`);
 
 --
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
 -- Ketidakleluasaan untuk tabel `detail_pesanan`
 --
 ALTER TABLE `detail_pesanan`
@@ -241,3 +249,4 @@ ALTER TABLE `log`
 ALTER TABLE `pesanan`
   ADD CONSTRAINT `fk_pesanan_pembeli` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`);
 COMMIT;
+
