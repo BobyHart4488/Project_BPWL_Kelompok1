@@ -222,7 +222,7 @@ if ($this->session->userdata('user') != 'user') {
 
                         <!-- Form -->
                         <div>
-                            <form action="<?php echo base_url()?>Admin/c_tambahMenu" method="POST">
+                            <form action="<?php echo base_url()?>User/c_tambahOrder1" method="POST">
                                 <div class="form-row">
                                     <div class="form-group col-12 col-md-6">
                                         <label for="nama_menu">Nama Menu</label>
@@ -244,7 +244,7 @@ if ($this->session->userdata('user') != 'user') {
                                     </div>
                                 </div>
 
-                                <button type="submit" name="addUser" class="btn btn-primary float-right">Add
+                                <button type="submit" name="addOrder" class="btn btn-primary float-right">Add
                                     Order</button>
                             </form>
                         </div>
@@ -252,44 +252,6 @@ if ($this->session->userdata('user') != 'user') {
                     </div>
                 </div>
             </div>
-            <?php $queryPilihMenu = $this->admin_model->tampilDetailPesananPembeli($this->session->userdata('id'));
-                if ($queryPilihMenu != 0) { ?>
-            <div class="card-body pt-0">
-                <div class="table-responsive-xl">
-                    <table class="table text-nowrap mb-0">
-                        <thead>
-                            <tr>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Nama Menu</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Jumlah</th>
-                                <th class="font-weight-semi-bold border-top-0 py-2">Harga</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $queryAdmin = $this->admin_model->tampilAdmin();
-                                                foreach ($queryAdmin as $rowAdmin) {
-                                            ?>
-                            <tr>
-                                <td class="py-3"><?php echo $rowAdmin->id_admin; ?></td>
-                                <td class="py-3"><?php echo $rowAdmin->password; ?></td>
-                                <td class="py-3">
-                                    <div class="position-relative">
-                                        <a class="link-dark d-inline-block"
-                                            href="<?= site_url('Admin/c_rowUbahAdmin')?>/<?= $rowAdmin->id_admin ?>">
-                                            <i class="gd-pencil icon-text"></i>
-                                        </a>
-                                        <a class="link-dark d-inline-block"
-                                            href="<?= site_url('Admin/c_hapusAdmin')?>/<?= $rowAdmin->id_admin ?>">
-                                            <i class="gd-trash icon-text"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <?php } ?>
 
             <!-- Footer -->
             <footer class="small p-3 px-md-4 mt-auto">

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-if ($this->session->userdata('user') != 'admin') {
+if ($this->session->userdata('user') != 'user') {
     redirect(base_url());
 }
 ?>
@@ -9,7 +9,7 @@ if ($this->session->userdata('user') != 'admin') {
 
 <head>
     <!-- Title -->
-    <title>Dashboard | El' Mio</title>
+    <title>Create Order | El' Mio</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,14 +18,8 @@ if ($this->session->userdata('user') != 'admin') {
     <!-- Favicon -->
     <link rel="shortcut icon" href="<?php echo base_url()?>assets/img/favicon.ico">
 
-
-    <!-- DEMO CHARTS -->
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/demo/chartist.css">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/demo/chartist-plugin-tooltip.css">
-
     <!-- Template -->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/graindashboard.css">
-
 </head>
 
 <body class="has-sidebar has-fixed-sidebar-and-header">
@@ -34,14 +28,14 @@ if ($this->session->userdata('user') != 'admin') {
         <nav class="navbar flex-nowrap p-0">
             <div class="navbar-brand-wrapper d-flex align-items-center col-auto">
                 <!-- Logo For Mobile View -->
-                <a class="navbar-brand navbar-brand-mobile" href="">
+                <a class="navbar-brand navbar-brand-mobile" href="/">
                     <img class="img-fluid w-100" src="<?php echo base_url()?>assets/img/logo-mini.png"
                         alt="Graindashboard">
                 </a>
                 <!-- End Logo For Mobile View -->
 
                 <!-- Logo For Desktop View -->
-                <a class="navbar-brand navbar-brand-desktop" href="">
+                <a class="navbar-brand navbar-brand-desktop" href="#">
                     <img class="side-nav-show-on-closed" src="<?php echo base_url()?>assets/img/logo-mini.png"
                         alt="Graindashboard" style="width: auto; height: 33px;">
                     <img class="side-nav-hide-on-closed" src="<?php echo base_url()?>assets/img/logo.png"
@@ -143,8 +137,7 @@ if ($this->session->userdata('user') != 'admin') {
                                     href="<?php echo base_url() ?>Elmio/logout">
                                     <span class="unfold-item-icon mr-3">
                                         <i class="gd-power-off"></i>
-                                    </span>
-                                    Sign Out
+                                    </span> Sign Out
                                 </a>
                             </li>
                         </ul>
@@ -161,65 +154,27 @@ if ($this->session->userdata('user') != 'admin') {
         <aside id="sidebar" class="js-custom-scroll side-nav">
             <ul id="sideNav" class="side-nav-menu side-nav-menu-top-level mb-0">
                 <!-- Title -->
-                <li class="sidebar-heading h6">Dashboard</li>
+                <li class="sidebar-heading h6">Navigasi Pembeli</li>
                 <!-- End Title -->
 
-                <!-- Dashboard -->
-                <li class="side-nav-menu-item active">
-                    <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>Admin">
-                        <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-dashboard"></i>
-                        </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Dashboard</span>
-                    </a>
-                </li>
-                <!-- End Dashboard -->
-
-                <!-- Admins -->
-                <li class="side-nav-menu-item side-nav-has-menu">
-                    <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subUsers">
-                        <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
-                        </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Admins</span>
-                        <span class="side-nav-control-icon d-flex">
-                            <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
-                        </span>
-                        <span class="side-nav__indicator side-nav-fadeout-on-closed"></span>
-                    </a>
-
-                    <!-- Users: subUsers -->
-                    <ul id="subUsers" class="side-nav-menu side-nav-menu-second-level mb-0">
-                        <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>Admin/admins">All Admins</a>
-                        </li>
-                        <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>Admin/admin_input">Add new</a>
-                        </li>
-                    </ul>
-                    <!-- End Users: subUsers -->
-                </li>
-                <!-- End Admins -->
-
-                <!-- Users -->
+                <!-- Getting Started -->
                 <li class="side-nav-menu-item">
-                    <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>Admin/users">
+                    <a class="side-nav-menu-link media align-items-center" href="<?php echo base_url()?>User">
                         <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-user"></i>
+                            <i class="gd-home"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Pembeli</span>
+                        <span class="side-nav-fadeout-on-closed media-body">Home Restaurant</span>
                     </a>
                 </li>
-                <!-- End Users -->
+                <!-- End Getting Started -->
 
-                <!-- Menus -->
-                <!-- Menus -->
-                <li class="side-nav-menu-item side-nav-has-menu">
+                <!-- My Order -->
+                <li class="side-nav-menu-item side-nav-has-menu active side-nav-opened">
                     <a class="side-nav-menu-link media align-items-center" href="#" data-target="#subOrders">
                         <span class="side-nav-menu-icon d-flex mr-3">
-                            <i class="gd-receipt"></i>
+                            <i class="gd-shopping-cart"></i>
                         </span>
-                        <span class="side-nav-fadeout-on-closed media-body">Menus</span>
+                        <span class="side-nav-fadeout-on-closed media-body">My Order</span></span>
                         <span class="side-nav-control-icon d-flex">
                             <i class="gd-angle-right side-nav-fadeout-on-closed"></i>
                         </span>
@@ -227,139 +182,104 @@ if ($this->session->userdata('user') != 'admin') {
                     </a>
 
                     <!-- Users: subUsers -->
-                    <ul id="subOrders" class="side-nav-menu side-nav-menu-second-level mb-0">
-                        <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>Admin/menus">All Menus</a>
+                    <ul id="subOrders" class="side-nav-menu side-nav-menu-second-level mb-0" style="display: block;">
+                        <li class="side-nav-menu-item active">
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/order_input">Add some
+                                Order</a>
                         </li>
                         <li class="side-nav-menu-item">
-                            <a class="side-nav-menu-link" href="<?php echo base_url()?>Admin/menu_input">Add new</a>
+                            <a class="side-nav-menu-link" href="<?php echo base_url()?>User/lihat_order">See my
+                                Order</a>
                         </li>
                     </ul>
                     <!-- End Users: subUsers -->
                 </li>
-                <!-- End Menus -->
+                <!-- End My Order -->
             </ul>
         </aside>
         <!-- End Sidebar Nav -->
 
         <div class="content">
-            <div class="h3 mb-0 ml-4">Survey Data</div>
-            <div class="row mt-5 py-2 px-3 px-md-4">
-                <div class="col-md-6 col-xl-4 mb-3 mb-xl-4">
-                    <!-- Widget -->
-                    <div class="card flex-row align-items-center p-3 p-md-4">
-                        <div class="icon icon-lg bg-soft-primary rounded-circle mr-3">
-                            <i class="gd-bar-chart icon-text d-inline-block text-primary"></i>
-                        </div>
-                        <div>
-                            <?php $query1 = $this->pesanan_model->tampilPesanan();
-                                $jumlah1 = 0;
-                                $jumlah2 = 0;
-                                foreach ($query1 as $row1) {
-                                    $jumlah1 += 1;
-                                    $jumlah2 += $row1->total; }?>
-                            <h4 class="lh-1 mb-1 ml-2"><?= $jumlah1; ?></h4>
-                            <h6 class="mb-0 ml-2">Total Pesanan</h6>
-                        </div>
-                    </div>
-                    <!-- End Widget -->
-                </div>
+            <div class="py-4 px-3 px-md-4">
+                <div class="card mb-3 mb-md-4">
 
-                <div class="col-md-6 col-xl-4 mb-3 mb-xl-4">
-                    <!-- Widget -->
-                    <div class="card flex-row align-items-center p-3 p-md-4">
-                        <div class="icon icon-lg bg-soft-secondary rounded-circle mr-3">
-                            <i class="gd-wallet icon-text d-inline-block text-secondary"></i>
-                        </div>
-                        <div>
-                            <h4 class="lh-1 mb-1 ml-2"><?= 'Rp '.$jumlah2; ?></h4>
-                            <h6 class="mb-0 ml-2">Total Pendapatan</h6>
-                        </div>
-                    </div>
-                    <!-- End Widget -->
-                </div>
+                    <div class="card-body">
+                        <!-- Breadcrumb -->
+                        <nav class="d-none d-md-block" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Orders</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Create New Order</li>
+                            </ol>
+                        </nav>
+                        <!-- End Breadcrumb -->
 
-                <div class="col-md-6 col-xl-4 mb-3 mb-xl-4">
-                    <!-- Widget -->
-                    <div class="card flex-row align-items-center p-3 p-md-4">
-                        <div class="icon icon-lg bg-soft-warning rounded-circle mr-3">
-                            <i class="gd-receipt icon-text d-inline-block text-warning"></i>
+                        <div class="mb-3 mb-md-4 d-flex justify-content-between">
+                            <div class="h3 mb-0">Create New Order</div>
                         </div>
-                        <div>
-                            <?php $query3 = $this->menu_model->tampilMenu();
-                                $jumlah3 = 0;
-                                foreach ($query3 as $row3) {
-                                    $jumlah3 += 1; }?>
-                            <h4 class="lh-1 mb-1 ml-2"><?= $jumlah3; ?></h4>
-                            <h6 class="mb-0 ml-2">Total Menu</h6>
-                        </div>
-                    </div>
-                    <!-- End Widget -->
-                </div>
 
-            </div>
-            <div class="px-3 px-md-4">
-                <div class="mb-3 mb-md-4 d-flex justify-content-between">
-                    <div class="h3 mb-0">Recent Orders</div>
-                </div>
-                <?php $queryOrder = $this->pesanan_model->tampilPesanan();
-                                $deck = 1;
-                                foreach ($queryOrder as $rowPesanan) {
-                                    if($deck % 2 == 1) { ?>
-                <div class="row"> <?php } ?>
-                    <div class="col-md-6">
-                        <!-- Card -->
-                        <div class="card mb-3 mb-md-4">
-                            <div class="card-header d-xl-flex">
-                                <h5 class="font-weight-semi-bold mb-0"><?php echo $rowPesanan->id_pesanan; ?></h5>
-                                <div class="nav-mobile-container ml-auto">
-                                    <?php echo $rowPesanan->nama; ?>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive-xl">
-                                    <table class="table text-nowrap mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Nama Menu</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Jumlah</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Harga</th>
-                                                <th class="font-weight-semi-bold border-top-0 py-2">Opsi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $queryDetail = $this->pesanan_model->tampilDetailPesananPembeli($rowPesanan->id_pesanan);
-                                                        foreach ($queryDetail as $rowDetail) { ?>
-                                            <tr>
-                                                <td class="py-3"><?php echo $rowDetail->nama; ?></td>
-                                                <td class="py-3"><?php echo $rowDetail->jumlah; ?></td>
-                                                <td class="py-3">Rp
-                                                    <?php echo $rowDetail->jumlah * $rowDetail->harga; ?></td>
-                                                <td class="py-3">
-                                                    <div class="position-relative">
-                                                        <a class="link-dark d-inline-block"
-                                                            href="<?= site_url('Admin/c_rowUbahDetailPesanan')?>/<?= $rowDetail->id_detail ?>">
-                                                            <i class="gd-pencil icon-text"></i>
-                                                        </a>
-                                                        <a class="link-dark d-inline-block"
-                                                            href="<?= site_url('Admin/c_hapusDetailPesanan')?>/<?= $rowDetail->id_detail ?>">
-                                                            <i class="gd-trash icon-text"></i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+
+                        <!-- Form -->
+                        <div>
+                            <form action="<?php echo base_url()?>User/c_tambahOrder2" method="POST">
+                                <div class="form-row">
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="nama_menu">Nama Menu</label>
+                                        <select class="input custom-select" name="id_menu" id="validationCustom04"
+                                            required>
+                                            <option selected disabled value="">Pilih Menu</option>
+                                            <?php $queryMenu = $this->menu_model->tampilMenu();
+                                            foreach ($queryMenu as $rowMenu) {
+                                        ?>
+                                            <option value="<?php echo $rowMenu->id_menu; ?>">
+                                                <?php echo $rowMenu->nama; ?></option>
                                             <?php } ?>
-                                        </tbody>
-                                    </table>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-12 col-md-6">
+                                        <label for="jumlah">Jumlah Menu</label>
+                                        <input type="number" class="form-control" value="" min="1" id="jumlah"
+                                            name="jumlah" placeholder="Jumlah pesanan menu">
+                                    </div>
                                 </div>
-                            </div>
+
+                                <button type="submit" name="addOrder" class="btn btn-primary float-right">Add Order</button>
+                            </form>
                         </div>
-                        <!-- End Card -->
+                        <!-- End Form -->
                     </div>
-                    <?php $deck += 1;
-                    if ($deck % 2 == 1) { ?>
-                </div> <?php } } ?>
+                </div>
             </div>
+            <?php $queryPilihMenu = $this->pesanan_model->tampilDetailPesananPembeli($this->session->userdata('session_order'));
+                if ($queryPilihMenu) { ?>
+            <div class="card-body pt-0">
+                <div class="table-responsive-xl">
+                    <table class="table text-nowrap mb-0">
+                        <thead>
+                            <tr>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Nama Menu</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Jumlah</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Harga</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($queryPilihMenu as $rowOrder) {
+                                            ?>
+                            <tr>
+                                <td class="py-3"><?php echo $rowOrder->nama; ?></td>
+                                <td class="py-3"><?php echo $rowOrder->jumlah; ?></td>
+                                <td class="py-3"><?php echo $rowOrder->harga; ?></td>
+                                <td class="py-3"><?php echo $rowOrder->jumlah * $rowOrder->harga; ?></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                    <a href="<?php echo base_url()?>User/c_selesaiOrder" class="btn btn-primary float-right">Finish Order</a>
+                </div>
+            </div>
+            <?php } ?>
 
             <!-- Footer -->
             <footer class="small p-3 px-md-4 mt-auto">
@@ -398,6 +318,7 @@ if ($this->session->userdata('user') != 'admin') {
 
     <script src="<?php echo base_url()?>assets/js/graindashboard.js"></script>
     <script src="<?php echo base_url()?>assets/js/graindashboard.vendor.js"></script>
+
 </body>
 
 </html>

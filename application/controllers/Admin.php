@@ -101,17 +101,17 @@ class Admin extends CI_Controller {
 		$this->load->view('main', $data);
 	}
 	
-	// Tampil Data Pesanan berdasarkan ID_Pesanan
-	public function c_rowUbahPesanan($id_pesanan)
+	// Tampil Data Detail Pesanan berdasarkan ID_Detail
+	public function c_rowUbahDetailPesanan($id_detail)
 	{
-		$data['row'] = $this->pesanan_model->rowUbahPesanan($id_pesanan);
-		$this->load->view('main_edit', $data);
+		$data['row'] = $this->pesanan_model->rowUbahDetailPesanan($id_detail);
+		$this->load->view('order_edit', $data);
 	}
 
 	// Edit Data Pesanan
-	public function c_ubahPesanan($id_pesanan)
+	public function c_ubahDetailPesanan($id_pesanan)
 	{
-		$this->pesanan_model->ubahPesanan($id_pesanan);
+		$this->pesanan_model->ubahDetailPesanan($id_pesanan);
 		redirect('Admin');
 	}
 
@@ -119,6 +119,13 @@ class Admin extends CI_Controller {
 	public function c_hapusPesanan($id_pesanan)
 	{
 		$this->pesanan_model->hapusPesanan($id_pesanan);
+		redirect('Admin');
+	}
+
+	// Hapus Data Detail Pesanan
+	public function c_hapusDetailPesanan($id_detail)
+	{
+		$this->pesanan_model->hapusDetailPesanan($id_detail);
 		redirect('Admin');
 	}
 

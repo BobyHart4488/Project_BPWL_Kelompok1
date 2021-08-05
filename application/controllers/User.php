@@ -12,26 +12,39 @@ class User extends CI_Controller {
 	
 	public function index()
 	{
+		$data_session = array(
+			'session_input' => 'no'
+		);
+
+		$this->session->set_userdata($data_session);
 		$this->load->view('home');
 	}
 
 	public function order_input()
 	{
+		$data_session = array(
+			'session_input' => 'yes'
+		);
+
+		$this->session->set_userdata($data_session);
 		$this->load->view('order_input');
+	}
+
+	public function lanjut_order()
+	{
+		$this->load->view('order_input2');
 	}
 
 	public function lihat_order()
 	{
+		$data_session = array(
+			'session_input' => 'no'
+		);
+
+		$this->session->set_userdata($data_session);
 		$this->load->view('lihat_order');
 	}
-	
-	// Tampil Data Pembeli
-	public function c_tampilUser()
-	{
-		$this->load->helper('url');
-		$data['hasil'] = $this->user_model->tampilUser();
-		$this->load->view('home', $data);
-	}
+
 	// Hapus Data Pembeli
 	public function c_hapusUser($id_pembeli)
 	{
@@ -39,26 +52,25 @@ class User extends CI_Controller {
 		redirect('User');
 	}
 
-	// Tampil Data Menu
-	public function c_tampilMenu()
+	// Tampil Order Pertama
+	public function c_tambahOrder1()
 	{
-		$this->load->helper('url');
-		$data['hasil'] = $this->menu_model->tampilMenu();
-		$this->load->view('home', $data);
+		$this->pesanan_model->tambahDetailPesananAwal();
+		redirect('User/lanjut_order');
 	}
 
-	// Tambah Data Pesanan
-	public function c_tambahPesanan()
+	// Tampil Order Selanjutnya
+	public function c_tambahOrder2()
 	{
-		$this->pesanan_model->tambahPesanan();
-		redirect('User');
+		$this->pesanan_model->tambahDetailPesanan();
+		redirect('User/lanjut_order');
 	}
 
-	// Tampil Data Pesanan
-	public function c_tampilPesanan()
+	// Selesai Order Selanjutnya
+	public function c_selesaiOrder()
 	{
-		$this->load->helper('url');
-		$data['hasil'] = $this->pesanan_model->tampilPesanan();
-		$this->load->view('home', $data);
+		$id_pesanan = $this->session->userdata('session_order');
+		$this->pesanan_model->totalHargaPesanan($id_pesanan);
+		redirect('User/lihat_order');
 	}
 }
