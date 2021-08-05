@@ -238,6 +238,11 @@ if ($this->session->userdata('user') != 'user') {
                                                     <?php echo $rowDetail->jumlah * $rowDetail->harga; ?></td>
                                             </tr>
                                             <?php } ?>
+                                            <tr>
+                                                <th class="font-weight-semi-bold border-top-0 py-2">Total Harga</th>
+                                                <td></td>
+                                                <td>Rp <?php echo $rowPesanan->total; ?></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
