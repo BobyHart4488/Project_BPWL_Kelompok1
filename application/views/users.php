@@ -245,6 +245,8 @@ if ($this->session->userdata('user') != 'admin') {
                             <tr>
                                 <th class="font-weight-semi-bold border-top-0 py-2">ID Pembeli</th>
                                 <th class="font-weight-semi-bold border-top-0 py-2">Nama Pembeli</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Nomor Telepon</th>
+                                <th class="font-weight-semi-bold border-top-0 py-2">Alamat Pembeli</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -254,6 +256,8 @@ if ($this->session->userdata('user') != 'admin') {
                                             <tr>
                                                 <td class="py-3"><?php echo $rowUser->id_pembeli; ?></td>
                                                 <td class="py-3"><?php echo $rowUser->nama; ?></td>
+                                                <td class="py-3"><?php echo $rowUser->no_telepon; ?></td>
+                                                <td class="py-3"><?php echo $rowUser->alamat; ?></td>
                                             </tr>
                                             <?php } ?>
                             </tbody>
