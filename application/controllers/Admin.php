@@ -32,16 +32,6 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_input');
 	}
 
-	public function admin_edit()
-	{
-		$this->load->view('admin_edit');
-	}
-
-	public function orders()
-	{
-		$this->load->view('orders');
-	}
-
 	public function menus()
 	{
 		$this->load->view('menus');
@@ -50,11 +40,6 @@ class Admin extends CI_Controller {
 	public function menu_input()
 	{
 		$this->load->view('menu_input');
-	}
-
-	public function menu_edit()
-	{
-		$this->load->view('menu_edit');
 	}
 
 	// Tambah Data Admin

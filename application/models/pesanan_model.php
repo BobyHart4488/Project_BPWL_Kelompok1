@@ -73,11 +73,6 @@ class Pesanan_model extends CI_Model {
 	{
 		$this->db->query("DELETE FROM detail_pesanan WHERE id_pesanan = '$id_pesanan'");
 	}
-/*
-$query = $this->db->query("SELECT * FROM log l, pesanan pe WHERE l.id_pembeli = pe.id_pembeli AND 
-		l.id_pembeli = '$id_pembeli' AND pe.id_pesanan = CONCAT('PE_',LPAD(l.currval,3,0))'")->num_rows();
-		if($query == 0 && $cek == "yes") {
-*/
 	
 	function tambahDetailPesananAwal()
 	{
